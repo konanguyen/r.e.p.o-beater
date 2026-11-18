@@ -247,6 +247,7 @@ public class Loader
 			MidJoin.UnhookPhotonEvents();
 			Troll.UnhookPhotonEvents();
 			CosmeticFeatures.UnhookPhotonEvents();
+			EnemyHealthSync.Unsubscribe();
 		}
 		catch
 		{

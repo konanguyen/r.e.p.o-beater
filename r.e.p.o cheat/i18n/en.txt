@@ -22,7 +22,7 @@ tab.teleport=Teleport
 tab.menu=Menu
 
 # Menu title
-menu.title=DARK MENU 2.0
+menu.title=REPO BEATER 2.0
 menu.qq_group=QQ Group 865048905
 
 # Navigation shell
@@ -989,3 +989,21 @@ midjoin.running=Catch-up already running
 midjoin.left=Player left
 trolling.legacy_unsafe=Legacy destructive (hidden)
 trolling.legacy_hint=Crash, infinite loading, forced infinite tumble. Collapsed by default. Not enhanced.
+
+# Items Tab - Extraction packing (ported from D4rkks/r.e.p.o-cheat)
+pack.title=━━ Pack to Extraction ━━
+pack.desc=Stacks every item flat onto the extraction platform (Tetris-style). Enable the zone overlay first to calibrate the drop area.
+pack.zone_toggle=Show pack zone (calibration)
+pack.offset_x=Offset X
+pack.offset_y=Floor Y
+pack.offset_z=Offset Z
+pack.size_x=Size X
+pack.size_z=Size Z
+pack.yaw=Yaw
+pack.button=📦 Pack All Items to Extraction
+pack.reset=Reset zone to defaults
+pack.done_fmt=Packed {0} items onto the extraction platform
+pack.replaced_fmt=Re-placed {0} items that left the zone
+pack.no_items=No items to pack
+pack.no_extraction=No open extraction point found
+pack.guest_hint=Guest: packing moves items via ownership transfer; the host may need to be away from the platform

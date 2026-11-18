@@ -786,6 +786,7 @@ public partial class Hax2 : MonoBehaviour
 		}
 		Troll.EnsurePhotonEventHook();
 		CosmeticFeatures.EnsurePhotonEventHook();
+		EnemyHealthSync.Tick();
 		EyeColorEffects.Tick();
 
 		// Smooth ease-out animation
@@ -1242,6 +1243,8 @@ public partial class Hax2 : MonoBehaviour
 			GUI.color = originalColor;
 		}
 		try { DebugCheats.DrawESP(); } catch (System.Exception ex) { Debug.LogWarning((object)("[ESP] DrawESP error: " + ex.Message)); }
+		// 码放区域线框
+		try { ExtractionZone.DrawZoneEsp(); } catch (System.Exception ex) { Debug.LogWarning((object)("[Pack] zone ESP error: " + ex.Message)); }
 		ModernESP.ClearItemLabels();
 		ModernESP.ClearEnemyLabels();
 		// ESP增强：追踪线
@@ -3356,6 +3359,35 @@ public partial class Hax2 : MonoBehaviour
 		{
 			GUILayout.Label(L.T("role.guest_tp_items"), labelStyle, Array.Empty<GUILayoutOption>());
 		}
+
+		// ===================== 码放至撤离点 =====================
+		GUILayout.Space(10f);
+		DrawSectionHeader(L.T("pack.title"));
+		GUILayout.Label(L.T("pack.desc"), labelStyle, Array.Empty<GUILayoutOption>());
+		ToggleLogic("pack_show_zone", L.T("pack.zone_toggle"), ref ExtractionZone.showZone);
+		GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
+		ExtractionZone.offsetX = DrawPackSlider(L.T("pack.offset_x"), ExtractionZone.offsetX, -5f, 5f);
+		ExtractionZone.offsetY = DrawPackSlider(L.T("pack.offset_y"), ExtractionZone.offsetY, -2f, 2f);
+		ExtractionZone.offsetZ = DrawPackSlider(L.T("pack.offset_z"), ExtractionZone.offsetZ, -5f, 5f);
+		GUILayout.EndHorizontal();
+		GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
+		ExtractionZone.sizeX = DrawPackSlider(L.T("pack.size_x"), ExtractionZone.sizeX, 0.5f, 6f);
+		ExtractionZone.sizeZ = DrawPackSlider(L.T("pack.size_z"), ExtractionZone.sizeZ, 0.5f, 6f);
+		ExtractionZone.yaw = Mathf.Round(DrawPackSlider(L.T("pack.yaw"), ExtractionZone.yaw, -180f, 180f));
+		GUILayout.EndHorizontal();
+		if (GUILayout.Button(L.T("pack.button"), buttonStyle, Array.Empty<GUILayoutOption>()))
+		{
+			ExtractionPacker.PackAllToExtraction();
+		}
+		if (GUILayout.Button(L.T("pack.reset"), buttonStyle, Array.Empty<GUILayoutOption>()))
+		{
+			ExtractionZone.ResetToDefaults();
+		}
+		if (NativeGameApi.IsGuest())
+		{
+			GUILayout.Label(L.T("pack.guest_hint"), labelStyle, Array.Empty<GUILayoutOption>());
+		}
+
 		GUILayout.Space(10f);
 		DrawSectionHeader(L.T("items.modify_value"));
 		int num2 = (int)Mathf.Pow(10f, itemValueSliderPos);
@@ -3501,6 +3533,16 @@ public partial class Hax2 : MonoBehaviour
 		}
 
 		GUILayout.EndVertical();
+	}
+
+	// 码放区域滑条（步进 0.05，与码放网格一致）
+	private float DrawPackSlider(string label, float value, float min, float max)
+	{
+		GUILayout.BeginVertical(Array.Empty<GUILayoutOption>());
+		GUILayout.Label($"{label}: {Mathf.Round(value * 20f) / 20f}", labelStyle, Array.Empty<GUILayoutOption>());
+		float result = GUILayout.HorizontalSlider(value, min, max, Array.Empty<GUILayoutOption>());
+		GUILayout.EndVertical();
+		return Mathf.Round(result * 20f) / 20f;
 	}
 
 	private unsafe void DrawHotkeysTab()

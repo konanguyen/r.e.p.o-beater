@@ -685,6 +685,11 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 
 	public static string GetPrefabPath(string itemName)
 	{
+		string known = NativeGameApi.LookupValuableResourcePath(itemName);
+		if (!string.IsNullOrEmpty(known))
+		{
+			return known;
+		}
 		if (itemName.Contains("Valuable"))
 		{
 			return "Valuables/" + itemName;
@@ -702,6 +707,13 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		GameObject val = null;
 		if (itemName.Contains("Valuable"))
 		{
+			// 关卡 ValuablePresets 里的贵重物：直接用 PrefabRef 提供的已加载预制体
+			GameObject presetPrefab = NativeGameApi.LookupValuablePrefab(itemName);
+			if ((Object)(object)presetPrefab != (Object)null)
+			{
+				itemPrefabCache[itemName] = presetPrefab;
+				return presetPrefab;
+			}
 			if (itemName.Contains("Valuable"))
 			{
 				if (itemName == "Valuable Small" && (Object)(object)AssetManager.instance.surplusValuableSmall != (Object)null)

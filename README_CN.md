@@ -1,12 +1,23 @@
-# r.e.p.o-cheat
+# REPO Beater
 
 一个开源的 C# Mono 作弊工具，面向 Unity 游戏 [R.E.P.O.](https://store.steampowered.com/app/2594580/REPO/)，通过 SharpMonoInjector 运行时注入，使用 Harmony 打补丁。
+
+> **REPO Beater 分支** — 基于 [Mai-xiyu/r.e.p.o-cheat](https://github.com/Mai-xiyu/r.e.p.o-cheat) v2.5.1，并从 [D4rkks/r.e.p.o-cheat](https://github.com/D4rkks/r.e.p.o-cheat) 移植了部分功能（见[移植功能](#移植功能)）。仅供单人 / 私人好友房间使用，请勿在公共大厅使用。
 
 > 本项目开源且免费，仅供个人学习与研究使用。请在私人房间中使用，尊重其他玩家。作者不对使用方式负责。
 
 - [English Documentation](README.md)
 
 **当前版本：[v2.5.1](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.5.1)** — 适配 R.E.P.O. v0.4.4.3。
+
+## 移植功能
+
+从 D4rkks/r.e.p.o-cheat 合并、且原分支没有的功能：
+
+- **码放至撤离点**（物品页）：把所有物品平铺码放到撤离平台上（俄罗斯方块式堆叠）——按碰撞体实际占地、高度图堆叠、大件先放，物理落定后滚出区域的物品会被自动重新码放。码放区域（相对撤离点的偏移/尺寸/偏航）可用滑条校准，并带实时区域线框叠加（绿框 + 红色前沿）。
+- **物品生成器加入关卡贵重物预设**：生成列表现在枚举所有关卡 `ValuablePresets`（tiny/small/medium/big/wide/tall/veryTall 桶）里的每件贵重物，并按 `PrefabRef.ResourcePath` 的精确路径生成，不再依赖名称猜测。
+- **房客侧敌血同步**：非房主玩家的敌人 ESP 血条现在准确——解码传入的 `HurtRPC` / `DeathRPC` 事件（Photon RPC 事件码 200）并应用到本地 `EnemyHealth.healthCurrent`（游戏只在房主侧更新该字段）。
+- **菜单越南语**：完整的 903 条越南语翻译（`i18n/vi.txt`）。通过 **Menu → Language → Tiếng Việt** 切换（内置英语 / 简体中文 / 越南语）。
 
 
 ## 兼容性
@@ -31,7 +42,7 @@
 - **视觉**：基于 TMP 的 ESP（敌人、物品、玩家、撤离点），支持方框/名称/距离/血量/价值过滤，上色（Chams）、小地图雷达、追踪线、ESP 预设、地图总价值统计、玩家状态列表、**全图揭示**。
 - **战斗与玩家**：伤害/治疗/击杀/复活玩家、传送玩家、名字伪装、附身控制、自瞄（可调平滑度与距离）、**子弹追踪**（仅房主/单人，改写 `ItemGun.ShootBullet`）。
 - **敌人**：致盲/冻结/击杀/遣散敌人（走游戏 EnemyDirector/EnemyParent）、禁用陷阱（`Trap` 基类）、**传送敌人**（`EnemyTeleported`，房客可用）、敌人生成（仅房主，`PhotonNetwork.InstantiateRoomObject`）、**轻松抓取 / 近处刷新 / 关闭刷新冷却**。
-- **物品**：物品生成列表来自 `StatsManager.itemDictionary`（房主：房间物体；**房客：`PhotonNetwork.Instantiate`**，离开后可能消失）。物品传送（`SetPositionRPC`）、价值翻倍（房主）、复制手中物品、**充满手持电池**、远程出售、自动拾取、自动出售。
+- **物品**：物品生成列表来自 `StatsManager.itemDictionary` **并追加全部关卡贵重物预设**（房主：房间物体；**房客：`PhotonNetwork.Instantiate`**，离开后可能消失）。物品传送（`SetPositionRPC`）、价值翻倍（房主）、复制手中物品、**充满手持电池**、远程出售、自动拾取、自动出售、**码放至撤离点**（俄罗斯方块式堆叠，见[移植功能](#移植功能)）。
 - **传送**：准星传送、撤离点传送、随机传送、命名路径点，经游戏自身的 `PhysGrabObject.Teleport` API 同步。
 - **世界**：撤离目标归零 / **低搬运调试旗标**、一键完成回合、聊天指令（`!help`）、商店工具（经 `SetRunStatSet` 修改货币 + **廉价商店**，房主）、额外生命、解锁撤离点、**请求撤离**（`RoundDirector.RequestExtractionPointActivation`，房客可用）、发现贵重品（`DiscoverRPC`）、下关刷满贵重品、经 `RunManager.ChangeLevel` 切换场景，以及**指定关卡选择器**（`debugLevel`）。原生封装在 `World/NativeGameApi.cs`。
 - **装扮**：解锁全部装扮（游戏原生 `CosmeticUnlockAll` + 存档）、随机装扮、彩虹装扮循环——全部走游戏自身的 MetaManager/PlayerCosmetics 管线并同步到房间。
@@ -99,6 +110,12 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 欢迎贡献。适配新游戏版本时请同步维护兼容层：更新 `Compatibility\GameVersionInfo.cs` 中的指纹，按 `.api-compatibility.md` 的流程重跑 API diff，并保持测试通过。
 
 ## 更新日志
+
+### REPO Beater 分支（2026-11-19）
+
+- 基于 Mai-xiyu/r.e.p.o-cheat v2.5.1（游戏基线 v0.4.4.3 不变）。
+- 从 D4rkks/r.e.p.o-cheat 移植：码放至撤离点（Tetris ItemPacker + 校准区域 + 区域线框）、生成器加入关卡贵重物预设（按 `PrefabRef.ResourcePath` 精确生成）、房客侧敌血同步（Photon 事件码 200 解码）。
+- 菜单标题改为 `REPO BEATER 2.0`；新增区块的 i18n 字符串（中/英）。
 
 ### [v2.3.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.3.0) — 2026-08-16
 

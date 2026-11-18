@@ -337,7 +337,7 @@ public static class ItemTeleport
 		return triggered != null && triggered.GetValue(head) is bool ready && ready;
 	}
 
-	private static void PrepareDeathHead(Component source)
+	internal static void PrepareDeathHead(Component source)
 	{
 		PlayerDeathHead head = source as PlayerDeathHead ?? source.GetComponent<PlayerDeathHead>() ?? source.GetComponentInParent<PlayerDeathHead>();
 		if ((Object)(object)head == (Object)null)

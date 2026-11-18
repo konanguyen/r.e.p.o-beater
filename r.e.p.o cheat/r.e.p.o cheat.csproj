@@ -410,6 +410,7 @@
   <ItemGroup>
     <EmbeddedResource Include="i18n\zh.txt" />
     <EmbeddedResource Include="i18n\en.txt" />
+    <EmbeddedResource Include="i18n\vi.txt" />
     <EmbeddedResource Include="i18n\game\zh-CN.json" />
     <!-- Loader's AssemblyResolve loads 0Harmony from embedded resources: the published
          DLL is a single file and must carry its own Harmony. -->

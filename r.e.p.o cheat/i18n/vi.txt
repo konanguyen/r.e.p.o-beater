@@ -1,0 +1,1009 @@
+# ============================================
+# REPO BEATER - File ngôn ngữ tiếng Việt
+# Định dạng: key=value (mỗi dòng một bản dịch, # là chú thích)
+# ============================================
+
+# Thông tin ngôn ngữ
+lang.name=Tiếng Việt
+
+# Tên các tab
+tab.self=Bản thân
+tab.visuals=Hình ảnh
+tab.combat=Chiến đấu
+tab.fun=Vui chơi
+tab.enemies=Quái vật
+tab.items=Đồ vật
+tab.hotkeys=Phím tắt
+tab.trolling=Phòng
+tab.config=Cấu hình
+tab.server=Server
+tab.creative=Sáng tạo
+tab.teleport=Dịch chuyển
+tab.menu=Menu
+
+# Tiêu đề menu
+menu.title=REPO BEATER 2.0
+menu.qq_group=Nhóm QQ 865048905
+
+# Khung điều hướng
+nav.group.play=NGƯỜI CHƠI
+nav.group.world=THẾ GIỚI
+nav.group.online=TRỰC TUYẾN
+nav.group.system=HỆ THỐNG
+nav.desc.self=Máu, di chuyển, trang phục và cài đặt người chơi cục bộ.
+nav.desc.visuals=ESP, hiển thị và cài đặt đồ họa.
+nav.desc.combat=Súng, tương tác chiến đấu và nhắm mục tiêu người chơi.
+nav.desc.teleport=Công cụ vị trí và di chuyển nhanh.
+nav.desc.items=Sinh đồ vật, nâng cấp và điều khiển đồ.
+nav.desc.enemies=Điều khiển quái vật và tương tác thế giới.
+nav.desc.fun=Hiệu ứng trang trí và giải trí thuần túy.
+nav.desc.room=Điều khiển phòng, vào trễ và tương tác người chơi.
+nav.desc.server=Tìm phòng công khai và cài đặt tạo phòng.
+nav.desc.admin=Quản trị phòng dành cho Host.
+nav.desc.hotkeys=Gán phím và thao tác nhanh.
+nav.desc.config=Hồ sơ, cài đặt lưu trữ và chẩn đoán.
+nav.desc.menu=Giao diện, kích thước và hành vi menu.
+nav.active_count={0} đang bật
+nav.footer_hint=Nhấn {0} để đóng menu
+nav.session_offline=Ngoại tuyến
+nav.session_host=Host
+nav.session_guest=Khách
+menupage.layout=Bố cục
+menupage.layout_hint=Khôi phục kích thước, vị trí mặc định và trạng thái cuộn trang của menu.
+menupage.reset_layout=Đặt lại bố cục menu
+menupage.layout_reset=Đã đặt lại bố cục menu.
+
+# ============ Tab Bản thân ============
+self.health=Máu
+self.god_mode= Bất tử
+self.inf_health= Máu vô hạn
+self.revive_self=Tự hồi sinh
+self.movement=Di chuyển
+self.noclip= Xuyên tường
+self.inf_stamina= Thể lực vô hạn
+self.auto_dodge= Tự né đòn
+self.dodge_dist_fmt=Khoảng cách né: {0}m
+self.misc=Khác
+self.rgb_player= Đổi màu RGB
+cos.header=Trang phục
+cos.unlock_all=Mở khóa mọi trang phục
+cos.randomize=Trang phục ngẫu nhiên
+cos.random_live=Ngẫu nhiên liên tục
+cos.random_interval=Chu kỳ đổi: {0:F1}s
+cos.random_live_hint=Tự làm mới mũ và phụ kiện theo chu kỳ.
+cos.rainbow=Vòng lặp màu cầu vồng
+cos.rainbow_speed_fmt=Tốc độ chuyển: {0:F2}
+cos.rainbow_hint=Chuyển màu cơ thể qua bảng màu của game. Hoạt động ở mọi level và lobby.
+self.no_fog= Xóa sương mù
+self.watermark= Hiện watermark
+self.anti_grab= Chống bị giữ
+self.give_crown=Tặng vương miện
+self.no_recoil= Không giật súng
+self.no_cooldown= Không thời gian hồi súng
+self.gun_master_hint=Súng trong phòng thuộc về host; đạn được tính trên host và chỉ ảnh hưởng súng bạn đang cầm. Khách không thể áp dụng.
+self.spread_fmt=Độ tản đạn: {0:F2}x ({1})
+self.spread_none=Không có
+self.spread_normal=Bình thường
+self.grab_walls= Giữ đồ xuyên tường
+self.stats=Chỉ số người chơi
+self.strength_fmt=Sức mạnh: {0}
+self.throw_fmt=Lực ném: {0}
+self.speed_fmt=Tốc độ: {0}
+self.grab_range_fmt=Tầm giữ đồ: {0}
+self.stam_delay_fmt=Trễ hồi thể lực: {0}
+self.stam_rate_fmt=Tốc hồi thể lực: {0}
+self.extra_jump_fmt=Nhảy thêm: {0}
+self.tumble_fmt=Lực văng khi ngã: {0}
+self.jump_fmt=Lực nhảy: {0}
+self.gravity_fmt=Trọng lực: {0}
+self.crouch_delay_fmt=Trễ ngồi: {0}
+self.crouch_speed_fmt=Tốc độ ngồi: {0}
+self.slide_fmt=Hao mòn trượt: {0}
+self.flashlight_fmt=Đèn pin: {0}
+self.fov_fmt=FOV: {0}
+self.fov_loading=Đang tải trình chỉnh FOV...
+
+# ============ Tab Hình ảnh ============
+vis.esp_transition_only=ESP chỉ vẽ khi level đã sẵn sàng (Main). Tắt trong lúc load và khi chuyển cảnh.
+vis.modern_esp= ESP hiện đại
+vis.enemy_esp=ESP quái vật
+vis.enemy_toggle= Bật ESP quái vật
+vis.show_2d_box= Khung 2D
+vis.show_chams= Tô màu xuyên tường (Chams)
+vis.show_name= Tên
+vis.show_distance= Khoảng cách
+vis.show_health= Máu
+vis.item_esp=ESP đồ vật
+vis.item_toggle= Bật ESP đồ vật
+vis.show_3d_box= Khung 3D
+vis.item_chams= Tô màu xuyên tường (Chams)
+vis.chams_color=Màu Chams
+vis.item_name= Tên
+vis.item_distance= Khoảng cách
+vis.max_dist_fmt=Tầm xa tối đa {0}m
+vis.show_value= Giá trị
+vis.min_value_fmt=Giá trị tối thiểu ${0}
+vis.show_skulls= Sọ người chết
+vis.extract_esp=ESP điểm giao dịch
+vis.extract_toggle= Bật ESP điểm giao dịch
+vis.show_name_status= Tên/Trạng thái
+vis.extract_dist= Khoảng cách
+vis.player_esp=ESP người chơi
+vis.player_toggle= Bật ESP người chơi
+vis.player_2d= Khung 2D
+vis.player_3d= Khung 3D
+vis.player_name= Tên
+vis.player_dist= Khoảng cách
+vis.player_hp= Máu
+vis.player_list= Danh sách sống/chết
+vis.trace=Đường dò
+vis.trace_enemy= Đường dò quái vật
+vis.trace_item= Đường dò đồ vật
+vis.trace_player= Đường dò người chơi
+vis.esp_presets=Chế độ ESP có sẵn
+vis.radar=Radar
+vis.radar_toggle= Radar mini
+vis.radar_range_fmt=Tầm radar: {0}
+
+# ============ Tab Chiến đấu ============
+combat.select=Chọn người chơi:
+combat.damage=-1 Máu
+combat.heal=Hồi đầy máu
+combat.kill=Giết
+combat.revive=Hồi sinh
+combat.heal_revive=Hồi máu & hồi sinh (đồng bộ RPC)
+combat.tumble=Ngã lộn (10s)
+combat.hide_tp=Ẩn dịch chuyển
+combat.show_tp=Hiện dịch chuyển
+
+# ============ Tab Khác ============
+misc.select=Chọn người chơi:
+misc.spawn_money=[Host] Sinh tiền
+misc.spoof_name=Giả tên
+misc.spoof_btn=Áp dụng
+misc.reset_spoof=Khôi phục tên
+misc.spoof_self_only=Chỉ biệt danh Photon của bạn hiển thị với người khác
+misc.random_player_name=Tên ngẫu nhiên
+misc.random_string=Chuỗi ngẫu nhiên
+misc.persist_spoof= Giả tên vĩnh viễn
+misc.spoof_color=Giả màu tên
+misc.select_color=Chọn màu
+misc.rainbow= Chế độ cầu vồng
+misc.chat_spam=Spam chat
+misc.chat_spam_hint=Bấm vào ô để mở trình soạn lớn. Mỗi dòng xuống hàng gửi một tin nhắn chat. Chữ/dấu tiếng Anh không giữ được xuống hàng trong chat của game nên sẽ được đổi thành ký tự fullwidth khi gửi. Mẫu có sẵn sẽ điền vào ô để bạn chỉnh.
+misc.send=Gửi
+misc.activate_extraction=Kích hoạt mọi điểm giao dịch
+misc.map_tweaks=Chỉnh bản đồ (không thể hoàn tác):
+misc.disable_overlay=Tắt lớp gợi ý '?'
+misc.discover_valuables=Hiện mọi đồ giá trị trên bản đồ
+
+# ============ Tab Quái vật ============
+enemies.select=Chọn quái vật:
+enemies.spawn=[Host] Sinh quái
+enemies.select_fallback=Chọn quái vật
+enemies.kill=Giết quái vật
+enemies.kill_all=Giết mọi quái vật
+enemies.kill_guest_hint=Khách: dịch chuyển vào hố vô cực và kéo lõi rơi ra về điểm giao dịch
+enemies.blind= Làm mù quái vật
+enemies.hide_tp=Ẩn dịch chuyển
+enemies.show_tp=Hiện dịch chuyển
+enemies.tp_to=Dịch chuyển quái vật tới:
+enemies.no_player=Không có người chơi
+enemies.execute_tp=Thực hiện dịch chuyển
+
+# ============ Tab Đồ vật ============
+items.auto=Tính năng tự động
+items.auto_pickup= Tự nhặt đồ
+items.pickup_range_fmt=Tầm nhặt: {0}m
+items.min_value_fmt=Giá trị tối thiểu: {0}
+items.auto_sell= Tự bán (đồ đang cầm/trỏ chuột → điểm giao dịch đang mở)
+items.auto_sell_aim=Nhắm hoặc cầm một món đồ giá trị
+items.auto_sell_not_valuable=Đồ đang cầm không phải đồ giá trị
+items.auto_sell_no_extract=Không có điểm giao dịch đang mở (khoá hoặc đã dùng)
+items.auto_sell_in_zone=Món đồ này đã nằm trong điểm giao dịch
+items.auto_sell_sent=Đã gửi tới điểm giao dịch ({0})
+items.select=Chọn đồ vật:
+items.value_fmt=[Giá trị ${0}]
+items.tp_to_me=Đưa đồ tới tôi
+items.tp_all=Đưa mọi đồ về tôi
+items.modify_value=Sửa giá trị
+items.apply_value=Áp dụng giá trị
+items.hide_spawner=Ẩn trình sinh đồ
+items.show_spawner=Hiện trình sinh đồ
+items.select_spawn=Chọn đồ muốn sinh:
+items.spawn=Sinh món đã chọn
+items.spawn_50=Sinh 50 món đã chọn
+
+# ============ Tab Phím tắt ============
+hotkeys.config=Cấu hình phím tắt
+hotkeys.how_to=Cách đặt phím tắt:
+hotkeys.step1=1. Bấm vào ô phím, nhấn phím mong muốn
+hotkeys.step2=2. Bấm vào ô thao tác, chọn tính năng
+hotkeys.warning=Cảnh báo: mỗi thao tác dùng một phím riêng
+hotkeys.system=Phím hệ thống
+hotkeys.menu_toggle=Bật/tắt menu
+hotkeys.reload=Tải lại:
+hotkeys.unload=Gỡ bỏ:
+hotkeys.action=Phím thao tác
+hotkeys.press_key=Nhấn phím bất kỳ...
+hotkeys.not_set=Chưa đặt
+hotkeys.need_key=Gán phím trước đã
+hotkeys.clear=Xoá
+hotkeys.save=Lưu phím tắt
+hotkeys.saved=Đã lưu phím tắt
+
+# ============ Tab Phòng ============
+room.select=Chọn người chơi:
+room.max_players=Số người chơi
+room.force_host=Đoạt quyền Host
+room.force_host_info=Tắt NetworkManager → SetMasterClient → Khôi phục
+room.forcing=Đang đoạt quyền host...
+room.force_success=Bạn đã là host!
+room.force_fail=Thất bại (không trong phòng)
+room.not_in_room=Không ở trong phòng nào
+room.current_host=Host hiện tại:
+room.auto_force=Tự động đoạt host
+room.pick_method=Hoặc chọn một cách thủ công:
+room.crash_host=Đổ vỡ host
+room.local_fake=Giả cục bộ (đã tắt)
+room.no_host_rpc_spoof=Không thể giả RPC host: Photon kiểm tra người gửi thật. Giả danh tính cục bộ chỉ làm hỏng tính năng giữ đồ và tương tác.
+room.already_host=Bạn đã là host rồi
+room.crashing_host=Đang làm đổ vỡ host hiện tại...
+room.waiting_promotion=Đang chờ được phong host...
+room.method_fail_fmt=Cách {0} thất bại
+room.trying_method_fmt=Đang thử cách {0}...
+room.auto_suggest_crash=Mọi cách tự động đều thất bại, hãy thử "Đổ vỡ host"
+room.local_fake_done=Giả cục bộ hoàn tất (chỉ cục bộ)
+room.local_fake_warn=Giả cục bộ đang BẬT. Các tính năng khác có thể lỗi đồng bộ cho tới khi bạn Đặt lại danh tính.
+room.auto_stopped=Đã dừng mà không ghi đè danh tính host cục bộ.
+room.force_timeout=Đoạt host quá thời gian — danh tính đã khôi phục.
+room.reset_identity=Đặt lại danh tính / NetworkManager
+room.force_host_hint=Nếu giữ đồ/tương tác bị hỏng sau khi đoạt host, bấm Đặt lại danh tính. Đừng dùng giả cục bộ.
+room.shadow_protect_on=Vệ sĩ danh tính bật — các cờ giả-cục-bố sót lại sẽ được khôi phục.
+room.shadow_protect_off=Vệ sĩ danh tính tắt.
+room.state_in_room=Trong phòng
+room.state_lobby=Trong sảnh chờ
+room.state_connecting=Đang kết nối
+room.state_offline=Ngoại tuyến
+room.conn_fmt=Kết nối: {0}
+room.auth_diag_fmt=Host thật: {0} | Master: {1} | Giả cục bộ: {2}
+room.yes=Có
+room.no=Không
+room.fake_on=BẬT (làm hỏng tính năng khác)
+room.fake_off=tắt
+room.auth_tools=Công cụ quyền hạn
+room.shadow_host=Vệ sĩ danh tính
+room.shadow_hint=Không giả IsMasterClient. Ngăn cờ giả-cục-bộ sót lại làm hỏng pin, súng và điểm giao dịch.
+room.pv_stats_fmt=PhotonView tổng {0} | của tôi {1} | người khác {2}
+room.take_enemies=Đoạt quái vật
+room.take_items=Đoạt đồ vật
+room.take_all=Đoạt tất cả (bỏ qua người chơi)
+room.take_players=Đoạt người chơi
+room.release_views=Trả quyền sở hữu
+room.released_fmt=Đã trả {0} PhotonView
+room.player_take_blocked=Đoạt PhotonView của người chơi làm hỏng di chuyển/xuyên tường. Đã bỏ qua.
+room.rpc_injector=Trình bơm RPC
+room.scan_rpc=Quét RPC của game
+room.hv_rpc_fmt=RPC giá trị cao đang chạy: {0}
+room.activate_extract=Kích hoạt điểm giao dịch
+room.set_money=Cộng 99999 tiền
+room.rpc_queue_fmt=Hàng đợi RPC: {0} đang chờ
+room.flush_queue=Xả hàng đợi
+room.clear_queue=Xoá hàng đợi
+room.trolling=Quấy rối
+trolling.select=Chọn người chơi:
+trolling.bubble=Bật bong bóng
+trolling.clown=Chạm mũi hề
+trolling.glitch=Buộc nhiễu hình
+trolling.unmute=Buộc bật tiếng
+trolling.mute=Buộc câm tiếng
+trolling.inf_tumble=Ngã lộn vô hạn
+trolling.inf_loading=Load vô hạn
+trolling.remove_loading=Xoá màn hình load
+trolling.remove_loading_hint=Chỉ gỡ kẹt load cho bạn. Người được chọn chỉ gỡ được nếu họ cũng inject cheat này. Không tải lại cảnh hay ngắt kết nối.
+trolling.crash_player=Đổ vỡ người chơi
+trolling.detonate=Nổ tất cả
+trolling.crash_lobby=Đổ vỡ cả phòng
+
+# ============ Tab Chiến đấu (Áp thân) ============
+combat.possess=Áp thân người chơi
+combat.unpossess=Ngừng áp thân
+combat.possess_active=Đang áp thân: {0}
+combat.possess_self_warning=Không thể áp thân chính mình
+combat.possess_no_player=Hãy chọn một người chơi trước
+
+# ============ Tab Bản thân (Góc nhìn thứ 3) ============
+self.third_person= Camera thứ 3
+self.tp_cam_dist_fmt=Khoảng cách camera: {0:F1}
+self.tp_cam_height_fmt=Độ cao camera: {0:F1}
+
+# ============ Bản dịch ESP ============
+esp.death_head=Sọ người chơi chết
+esp.extraction=Điểm giao dịch
+esp.state_active=Đang mở
+esp.state_idle=Chờ
+esp.hp_fmt= Máu: {0}/{1}
+esp.player_hp_fmt=Máu: {0}
+
+# ============ Watermark ============
+watermark.main_fmt=DARK CHEAT | {0} - MENU
+watermark.credit=@Github/D4rkks (+collabs)| 汉化(二创) Mai-xiyu | VI: REPO Beater
+
+# ============ Định dạng máy chủ đã chọn ============
+server.selected_fmt=Đã chọn: {0} | Host: {1} | Khu vực: {2}
+
+# ============ Dịch chuyển đồ ============
+items.no_items=Không tìm thấy đồ vật nào
+items.tp_host=Dịch chuyển (Host trực tiếp)
+items.tp_client=Dịch chuyển (Xin quyền sở hữu)
+
+# ============ Tên quái vật ============
+enemy.name.Apex Predator=Apex Predator
+enemy.name.Banger=Banger
+enemy.name.Bowtie=Bowtie
+enemy.name.Ceiling Eye=Ceiling Eye
+enemy.name.Chef=Chef
+enemy.name.Clown=Clown
+enemy.name.Duckling=Duckling
+enemy.name.Gnome=Gnome
+enemy.name.Headman=Headman
+enemy.name.Hidden=Hidden
+enemy.name.Huntsman=Huntsman
+enemy.name.Mentalist=Mentalist
+enemy.name.Peeper=Peeper
+enemy.name.Reaper=Reaper
+enemy.name.Robe=Robe
+enemy.name.Rugrat=Rugrat
+enemy.name.Shadow Child=Shadow Child
+enemy.name.Slug=Slug
+enemy.name.Spewer=Spewer
+enemy.name.Thin Man=Thin Man
+enemy.name.Trudge=Trudge
+enemy.name.Upscream=Upscream
+enemy.name.Animal=Animal
+enemy.name.Floater=Floater
+enemy.name.Spider=Spider
+
+# ============ Tab Cấu hình ============
+config.title=Cấu hình
+config.prefs=Cấu hình PlayerPrefs
+config.save=Lưu cấu hình
+config.saved=Đã lưu cấu hình
+config.load=Tải cấu hình
+config.loaded=Đã tải cấu hình
+config.json=Tệp cấu hình JSON
+config.save_json=Lưu JSON
+config.json_saved_fmt=Đã lưu JSON: {0}
+config.load_json=Tải JSON
+config.json_loaded=Đã tải JSON
+config.json_path_fmt=Đường dẫn: {0}
+config.language=Ngôn ngữ
+config.lang_switched=Đã đổi ngôn ngữ
+config.lang_current=Ngôn ngữ hiện tại:
+
+# ============ Tab Cài đặt Menu ============
+menupage.title=Cài đặt Menu
+menupage.bg_color=Màu nền
+menupage.bg_r=Đỏ(R):
+menupage.bg_g=Xanh lá(G):
+menupage.bg_b=Xanh dương(B):
+menupage.bg_a=Độ mờ(A):
+menupage.apply_color=Áp dụng màu nền
+menupage.bg_image=Ảnh nền tuỳ chọn
+menupage.load_image=Tải ảnh
+menupage.clear_image=Xoá ảnh
+menupage.image_path=Đường dẫn ảnh:
+menupage.image_loaded=Đã tải ảnh nền
+menupage.image_cleared=Đã xoá ảnh nền
+menupage.image_failed=Tải ảnh thất bại
+menupage.controls=Điều khiển menu
+menupage.language=Ngôn ngữ
+menupage.lang_current=Ngôn ngữ hiện tại:
+menupage.lang_switched=Đã đổi ngôn ngữ
+menupage.reload=Tải lại menu
+menupage.unload=Gỡ menu
+menupage.main_menu=Về menu chính
+menupage.quit_game=Thoát game
+menupage.confirm_unload=Xác nhận gỡ? Bấm lần nữa
+menupage.confirm_quit=Xác nhận thoát? Bấm lần nữa
+menupage.theme=Giao diện
+menupage.theme_current=Giao diện hiện tại:
+menupage.theme_applied=Đã áp dụng giao diện
+theme.classic=Cam cổ điển
+theme.appledark=Apple Dark
+
+# ============ Tab Sáng tạo ============
+creative.title=Chế độ sáng tạo
+creative.desc=Chế độ sáng tạo kiểu Minecraft:
+creative.feat1=• Bất tử + Bay + Thể lực vô hạn
+creative.feat2=• Giữ đồ xuyên tường + Không hồi súng
+creative.feat3=• Xóa sương mù
+creative.toggle= Chế độ sáng tạo
+creative.status_on=Trạng thái: Chế độ sáng tạo BẬT
+creative.controls=Điều khiển bay
+creative.wasd=WASD di chuyển, Space bay lên, Ctrl bay xuống
+creative.shift=Shift - tăng tốc
+creative.active=Tính năng đang bật:
+creative.god=  ✓ Bất tử
+creative.hp=  ✓ Máu vô hạn
+creative.fly=  ✓ Bay xuyên tường
+creative.stam=  ✓ Thể lực vô hạn
+creative.grab=  ✓ Giữ đồ xuyên tường
+creative.cd=  ✓ Không hồi súng
+creative.fog=  ✓ Xóa sương mù
+creative.status_off=Trạng thái: Chế độ sinh tồn
+
+# ============ Tab Dịch chuyển ============
+tp.quick=Dịch chuyển nhanh
+tp.crosshair=Dịch chuyển tới tầm ngắm
+tp.extraction=Dịch chuyển tới điểm giao dịch
+tp.random=Dịch chuyển ngẫu nhiên (50m)
+tp.waypoints=Quản lý điểm đánh dấu
+tp.name=Tên:
+tp.save=Lưu vị trí
+tp.no_waypoints=Chưa có điểm đánh dấu nào
+tp.goto=Đi tới điểm đã chọn
+tp.delete=Xoá điểm đã chọn
+
+# ============ Tab Server ============
+server.title=Danh sách server
+server.refresh=Làm mới
+server.hide_full= Ẩn phòng đầy
+server.show_members= Hiện thành viên
+server.search=Tìm kiếm:
+server.sort_az=Khu vực A-Z
+server.sort_za=Khu vực Z-A
+server.sort_most=Nhiều người nhất
+server.sort_least=Ít người nhất
+server.col_name=Tên phòng
+server.col_players=Người chơi
+server.col_region=Khu vực
+server.col_host=Host
+server.fetching=Đang tải..
+server.room_fmt=Phòng: {0}
+server.unknown=Không rõ
+server.unnamed=Chưa đặt tên
+server.modded=(Modded)
+server.public_host=Công khai
+server.photon_count={0} phòng công khai ({1})
+server.photon_timeout=Danh sách công khai quá thời gian chờ
+server.photon_in_room=Đang trong phòng — chỉ hiện danh sách Steam
+server.photon_busy=Đang kết nối — hãy thử làm mới sau
+server.join=Vào phòng
+server.invite=Lấy link mời
+server.members=Thành viên phòng
+
+# ============ Chung ============
+common.all=Tất cả
+common.void=Hố vô cực
+common.enemy=Quái vật
+common.hp_unknown=Máu: Không rõ
+common.no_enemies=Không tìm thấy quái vật
+common.unknown_player=Người chơi không rõ
+common.alive=[Sống]
+common.dead=[Chết]
+common.no_players=Không tìm thấy người chơi
+common.alive_list=Còn sống:
+common.dead_list=Đã chết:
+common.map_value_fmt=Tổng giá trị bản đồ ${0}
+common.select_feature=Chọn tính năng để gán phím
+common.cancel=Huỷ
+common.close=Đóng
+common.chams_picker=Chọn màu Chams
+common.status_wait=Đang chờ...
+common.all_players=Mọi người chơi
+common.tp_options=Tùy chọn dịch chuyển
+common.to=tới
+common.execute_tp=Thực hiện dịch chuyển
+common.fetching_players=Đang tải người chơi...
+
+# ============ Chú giải radar ============
+radar.enemy=Quái vật
+radar.player=Người chơi
+radar.item=Đồ vật
+radar.extract=Giao dịch
+
+# ============ Chế độ ESP có sẵn ============
+preset.custom=Tùy chỉnh
+preset.high_value=Giá trị cao
+preset.enemy_only=Quái vật
+preset.player_only=Người chơi
+preset.everything=Tất cả
+preset.stealth=Giấu mình
+
+# ============ Tên màu ============
+color.0=Trắng
+color.1=Xám
+color.2=Đen
+color.3=Đỏ nhạt
+color.4=Đỏ
+color.5=Đỏ đậm 1
+color.6=Đỏ đậm 2
+color.7=Hồng tươi 1
+color.8=Hồng tươi 2
+color.9=Tím tươi
+color.10=Tím nhạt 1
+color.11=Tím nhạt 2
+color.12=Tím
+color.13=Tím than 1
+color.14=Tím than 2
+color.15=Xanh dương đậm
+color.16=Xanh dương
+color.17=Xanh dương nhạt 1
+color.18=Xanh dương nhạt 2
+color.19=Xanh lam
+color.20=Xanh lá nhạt 1
+color.21=Xanh lá nhạt 2
+color.22=Xanh lá nhạt 3
+color.23=Xanh lá
+color.24=Xanh lá 2
+color.25=Xanh lá đậm 1
+color.26=Xanh lá đậm 2
+color.27=Xanh lá đậm 3
+color.28=Vàng nhạt
+color.29=Vàng
+color.30=Vàng đậm
+color.31=Cam
+color.32=Cam đậm
+color.33=Nâu
+color.34=Ô liu
+color.35=Màu da
+
+# Nhãn cửa sổ con Chams
+chams.enemy_visible=Quái hiển thị
+chams.enemy_hidden=Quái bị che
+chams.item_visible=Đồ hiển thị
+chams.item_hidden=Đồ bị che
+
+# ============ Tính năng mới ============
+# Tab Bản thân - Mới
+self.max_all_upgrades=⬆ Mọi nâng cấp lên mức tối đa
+self.game_speed_fmt=Tốc độ game: {0}x
+self.stealth_mode=Ẩn mình trên mạng (Anti-Cheat)
+
+# Tab Chiến đấu - Aimbot
+combat.aimbot_title=━━ Aimbot ━━
+combat.aimbot_toggle=Bật aimbot (cầm súng + chuột phải)
+combat.aimbot_smooth_fmt=Độ mượt: {0}
+combat.aimbot_range_fmt=Tầm tối đa: {0}m
+combat.bullet_track=Đạn bám đích
+combat.bullet_track_hint=Giữ mục tiêu trước tầm ngắm và bắn. Viên đạn sẽ trúng họ; họ đứng yên tại chỗ. Chỉ áp dụng khi bắn với tư cách host/chơi đơn.
+combat.track_enemies=Bám quái vật
+combat.track_players=Bám người chơi
+combat.track_items=Bám đồ vật
+combat.track_fov=Góc nhắm: {0}°
+combat.track_range=Tầm bám: {0}m
+
+# Tab Quái vật - Mới
+enemies.freeze=❄ Đóng băng mọi quái vật
+enemies.unfreeze=▶ Rã băng mọi quái vật
+enemies.disable_traps=🚫 Vô hiệu mọi bẫy
+
+# Tab Đồ vật - Mới
+items.inflate_title=━━ Thổi phồng giá trị ━━
+items.inflate_10x=Đổi 10 lần
+items.inflate_100x=Đổi 100 lần
+items.inflate_max=TẤT CẢ mức TỐI ĐA ($99999)
+items.duplicate=📋 Nhân bản đồ đang cầm
+
+# Tab Khác - Mới
+misc.round_tools=━━ Công cụ lượt chơi ━━
+misc.zero_haul=Chuẩn chỉ tiêu về 0 (thắng liền)
+misc.auto_complete=⚡ Tự hoàn thành lượt chơi
+misc.chat_commands=━━ Lệnh chat ━━
+misc.chat_commands_desc=Gõ !help để xem mọi lệnh
+
+# Phản hồi chỉ tiêu điểm giao dịch
+haul.zeroed=✓ Đã về 0 chỉ tiêu điểm giao dịch!
+haul.no_round=✗ Không có lượt chơi nào đang chạy
+haul.no_field=✗ Không tìm thấy trường chỉ tiêu điểm giao dịch
+haul.error=✗ Lỗi: {0}
+
+# Lệnh chat
+cmd.god_on=✓ Bất tử BẬT
+cmd.god_off=✓ Bất tử TẮT
+cmd.noclip_on=✓ Xuyên tường BẬT
+cmd.noclip_off=✓ Xuyên tường TẮT
+cmd.tp_success=✓ Đã dịch chuyển tới: {0}
+cmd.tp_notfound=✗ Không tìm thấy người chơi: {0}
+cmd.kill_self=✓ Tự sát
+cmd.kill_all=✓ Đã giết mọi quái vật
+cmd.speed=✓ Tốc độ game: {0}x
+cmd.heal=✓ Đã hồi máu
+cmd.items_tp=✓ Đã dịch chuyển mọi đồ vật
+cmd.upgrade=✓ Đã max mọi thứ
+cmd.freeze_on=✓ Quái vật đã đóng băng
+cmd.freeze_off=✓ Quái vật đã rã băng
+cmd.inflate=✓ Đã thổi phồng giá trị đồ
+cmd.dup_ok=✓ Đã nhân bản
+cmd.dup_fail=✗ Đang không cầm đồ
+cmd.stealth_on=✓ Ẩn mình BẬT
+cmd.stealth_off=✓ Ẩn mình TẮT
+cmd.help_title=━━ Danh sách lệnh ━━
+cmd.unknown=✗ Lệnh không rõ: {0}
+cmd.error=✗ Lỗi lệnh: {0}
+cmd.tp_usage=Cú pháp: /tp <người chơi>
+cmd.tp_not_found=✗ Không tìm thấy người chơi: {0}
+cmd.tp_done=✓ Đã dịch chuyển tới: {0}
+cmd.no_enemies=✗ Không tìm thấy quái vật
+cmd.kill_done=✓ Đã giết quái vật
+cmd.killall_done=✓ Đã giết mọi quái vật
+cmd.speed_usage=Cú pháp: /speed <hệ số>
+cmd.speed_set=✓ Tốc độ game: {0}x
+cmd.heal_done=✓ Đã hồi máu
+cmd.items_done=✓ Đã dịch chuyển mọi đồ vật
+cmd.maxup_done=✓ Đã max mọi thứ
+cmd.inflate_done=✓ Đã thổi phồng giá trị: {0}
+cmd.dup_done=✓ Đã nhân bản
+cmd.help_text=━━ Danh sách lệnh ━━
+
+# Bản dịch tên đồ vật
+item.name.Diamond=Kim cương
+item.name.Gold Bar=Thỏi vàng
+item.name.Cash Register=Máy tính tiền
+item.name.Goblet=Cốc lễ
+item.name.Crown=Vương miện
+item.name.Necklace=Dây chuyền
+item.name.Ring=Chiếc nhẫn
+item.name.Watch=Đồng hồ đeo tay
+item.name.Vase=Bình gốm
+item.name.Painting=Bức tranh
+item.name.Statue=Tượng
+item.name.Trophy=Cúp
+item.name.Lamp=Cây đèn
+item.name.Clock=Đồng hồ
+item.name.Music Box=Hộp nhạc
+item.name.Globe=Quả địa cầu
+item.name.Telescope=Kính thiên văn
+item.name.Crystal Ball=Quả cầu thủy tinh
+item.name.Hourglass=Đồng hồ cát
+item.name.Chalice=Chiếc chén
+item.name.Candelabra=Chân nến
+item.name.Mirror=Gương
+item.name.Book=Quyển sách
+item.name.Chest=Chiếc rương
+item.name.Urn=Bình đựng tro
+item.name.Skull=Đầu lâu
+item.name.Plate=Chiếc đĩa
+item.name.Coin=Đồng xu
+item.name.Gem=Viên đá quý
+item.name.Figurine=Tượng nhỏ
+item.name.Doll=Búp bê
+item.name.Toy=Đồ chơi
+item.name.Instrument=Nhạc cụ
+item.name.Orb=Quả cầu
+item.name.Egg=Quả trứng
+item.name.Cube=Khối lập phương
+item.name.CubeBall=Khối lập phương
+item.name.ValuableCubeBall=Khối lập phương
+item.name.Relic=Cổ vật
+item.name.Idol=Tượng thờ
+item.name.Artifact=Di vật
+item.name.Jewel=Trang sức quý
+
+# ===== i18n tính năng mới =====
+tab.admin=Quản trị
+
+# Tab Khác - Chống kick / Đội
+misc.protection=Bảo vệ
+misc.anti_kick=Chống bị kick
+misc.team_tools=Công cụ đội
+misc.tp_all_extraction=Đưa cả đội tới điểm giao dịch
+
+# Tab Quái vật - Tốc độ
+enemies.speed_section=Tốc độ quái vật
+enemies.speed_mult=Hệ số tốc độ: {0}x
+enemies.speed_freeze=Chậm (0.1x)
+enemies.speed_normal=Bình thường (1.0x)
+enemies.speed_fast=Nhanh (3.0x)
+
+# Tab Đồ vật - Cửa hàng
+items.shop_section=Công cụ cửa hàng
+items.shop_free=Mọi món cửa hàng miễn phí
+items.money_amount=Số tiền: {0}
+items.spawn_money=Sinh tiền cạnh người chơi
+items.add_money=Cộng tiền trực tiếp
+
+# Tab Quấy rối - Người chơi ảo
+trolling.fake_players=Người chơi ảo
+trolling.fake_name=Tên:
+trolling.fake_count=Số lượng: {0}
+trolling.fake_3d_mode=Chế độ mô hình 3D (chỉ Host)
+trolling.add_fakes=Thêm người chơi ảo
+trolling.remove_fakes=Xoá mọi người chơi ảo
+trolling.fake_status=Bot đang hoạt động: {0}
+trolling.fake_host_only=Chỉ Host
+
+# Tab Quản trị
+admin.title=Quản trị người chơi (Host)
+admin.guest_hint=Nâng cấp của khách chỉ áp dụng cục bộ, không đồng bộ.
+admin.select_target=Chọn người chơi mục tiêu
+admin.upgrades=Cài đặt nâng cấp
+admin.cap=Mức tối đa
+admin.cap_set=Đặt
+admin.cap_hint=Game không giới hạn mức. Thanh trượt là 0–{0}. Nút Đặt sẽ ghi nhớ giá trị này.
+admin.grab_str=Sức giữ đồ: {0}
+admin.throw_str=Lực ném: {0}
+admin.sprint_spd=Tốc chạy: {0}
+admin.grab_range=Tầm giữ đồ: {0}
+admin.extra_jump=Nhảy thêm: {0}
+admin.tumble_launch=Lực văng khi ngã: {0}
+admin.apply=Áp dụng nâng cấp
+admin.max_all=Max tất cả
+admin.aura_section=Sát khí bất tử
+admin.aura_toggle=Bật vùng bảo vệ bất tử
+admin.aura_actor=Người#{0}
+admin.aura_status=Mục tiêu bảo vệ: {0}
+admin.aura_hint=Mục tiêu cục bộ bất tử thật (chặn Hurt). Người khác được giữ sống bằng hồi máu/hồi sinh; host còn gửi HurtOther nhắm vào họ.
+
+# Server - Lọc khu vực & Tạo phòng
+server.region_filter=Lọc khu vực:
+server.hide_create=Ẩn tạo phòng
+server.show_create=Tạo phòng nhanh
+server.room_name=Tên phòng:
+server.max_players=Số người tối đa: {0}
+server.max_players_hint=Đặt trước khi làm host. Nút Host và bảng tạo phòng trong game đều dùng số này. Không thể đổi sau khi phòng đã tồn tại.
+server.max_players_locked=Đang ở trong phòng. Số người tối đa đã bị khoá khi phòng được tạo.
+server.create_room=Tạo phòng
+server.lobby_private=Riêng tư
+server.lobby_public=Công khai
+server.lobby_toggle=Hiển thị: {0}
+server.mid_join=Vào giữa trận
+server.mid_join_hint=Giữ lobby vào được sau khi bắt đầu và khoá ngắn trong lúc chuyển cảnh. Chờ nghiêm ngặt các ACK tải module, spawn và sở hữu trước khi tái tạo người chơi cũ. Rào chờ quá giờ tuyệt đối không bị ép mở.
+server.mid_join_armed=Đã sẵn sàng: phòng vẫn vào được sau khi bắt đầu
+server.mid_join_off=Tắt: lobby khoá như thường lệ khi bắt đầu
+server.mid_join_open=Phòng này: vào được
+server.mid_join_closed=Phòng này: bị khoá (người ngoài không vào được)
+server.mid_join_switching=Đang chuyển cảnh: lobby khoá trong giây lát
+server.create_region_fmt=Khu vực Photon: {0} (Tất cả/không chọn → jp)
+server.history=Phòng gần đây
+server.history_rejoin=Vào lại
+server.history_clear=Xoá lịch sử
+server.history_empty=Chưa có phòng gần đây nào
+server.history_row_fmt={0}  |  {1}  |  {2}
+room.creating=Đang tạo...
+room.failed=Tạo phòng thất bại
+room.success=Đã tạo phòng!
+room.error=Lỗi tạo phòng
+room.need_menu=Hãy quay về menu chính của game trước, rồi tạo phòng.
+room.hosted_fmt=Đang host {0} / {1} — chờ lobby hiển thị.
+
+# Hình ảnh - Skeleton ESP
+vis.skeleton_esp=ESP khung xương
+
+# AutoPilot
+autopilot.start=Bật AutoPilot
+autopilot.stop=Tắt AutoPilot
+autopilot.starting=AutoPilot đã khởi động...
+autopilot.stopped=AutoPilot đã dừng
+autopilot.no_player=Không tìm thấy người chơi cục bộ
+autopilot.finding_item=Đang tìm đồ vật...
+autopilot.moving_item=Đang tiến tới đồ ({0})...
+autopilot.picking=Đang nhặt đồ...
+autopilot.finding_sell=Đang tìm điểm giao dịch...
+autopilot.moving_sell=Đang tiến tới điểm giao dịch ({0})...
+autopilot.selling=Đang bán đồ...
+autopilot.done=Xong! Đã giao {0} món
+autopilot.delivered=Đã giao một món (tổng {0})
+
+# ============ Tab Vui chơi ============
+fun.title=Tính năng vui chơi
+fun.gyro_spin=🌀 Quay đầu gyro
+fun.gyro_speed_fmt=Tốc độ quay: {0}°/s
+fun.gyro_desc=Người khác thấy bạn quay tròn, bạn thấy bình thường
+fun.eye_title=👁 Màu mắt người chơi
+fun.eye_off=Tắt
+fun.eye_fixed=Đổi màu cố định
+fun.eye_random=Ngẫu nhiên
+fun.eye_rainbow=Cầu vồng
+fun.eye_r=Đỏ: {0}
+fun.eye_g=Xanh lá: {0}
+fun.eye_b=Xanh dương: {0}
+fun.eye_randomize=Ngẫu nhiên màu cố định
+fun.eye_interval=Chu kỳ ngẫu nhiên: {0:F1}s
+fun.eye_reroll=Đổi ngay
+fun.eye_speed=Tốc độ cầu vồng: {0:F2}
+fun.eye_hint=Đồng bộ bản thân: màu cố định/ngẫu nhiên/cầu vồng dùng RPC mắt gốc của game, nên client không mod vẫn thấy chu kỳ 5 preset dựng sẵn. RGB tuỳ ý chính xác chỉ hiển thị trên client đã inject. Biểu cảm Hurt, chết và biểu cảm mắt gốc được ưu tiên hơn.
+fun.ascii_art=🎨 Spam tranh ASCII
+fun.ascii_select=Chọn mẫu:
+fun.ascii_fill=Điền vào ô
+fun.ascii_sending=Đang gửi từng dòng...
+fun.ascii_done=Đã gửi
+fun.scare=👻 Âm thanh doạ ngẫu nhiên
+fun.scare_btn=Doạ ngay
+fun.scare_desc=Jump-scare AudioScare cục bộ. Host còn có thể phát AmbienceBreakers.PlaySoundRPC. Không đoán mò MakeNoiseRPC.
+fun.gesture=💃 Cử chỉ
+fun.gesture_shake=Lắc đầu
+fun.gesture_nod=Gật đầu
+fun.gesture_desc=Thực hiện cử chỉ mà người khác nhìn thấy được
+fun.scale=🔮 Thay đổi kích thước
+fun.scale_size_fmt=Kích thước: {0}x
+fun.scale_desc=Chỉ cục bộ — game không đồng bộ kích thước
+
+# Tab Phòng - Công cụ thế giới
+room.world_tools=Công cụ thế giới
+room.level_adjust=Chỉnh level
+room.set_next_level=Đặt level tiếp theo
+room.level_status=Hiện tại: {0}
+room.complete_level=Hoàn thành level
+room.go_shop=Về cửa hàng
+room.go_lobby=Về sảnh chờ
+room.go_main_menu=Menu chính
+self.debug_flags=Cờ debug của game
+self.debug_energy=Thể lực vô hạn (Debug)
+self.debug_no_overcharge=Không quá tải
+self.debug_no_tumble=Không ngã lộn
+
+# Bản địa hóa game (tính năng, mặc định tắt)
+localization.header=Tiếng Trung trong game
+localization.game_chinese=Bản địa hóa tiếng Trung cho game
+localization.mode_label=Chế độ ngôn ngữ game
+localization.mode.auto=Tự động
+localization.mode.zhcn=简体中文
+localization.mode.english=Tiếng Anh
+localization.debug_log=Máy quét bản dịch còn thiếu
+enemies.despawn_all=Cho mọi quái vật biến mất
+enemies.easy_grab=Nhặt quái vật dễ dàng
+enemies.no_spawn_pause=Không tạm dừng sinh quái
+enemies.spawn_close=Sinh quái vật gần đây
+self.inf_battery=Pin vô hạn
+self.inf_battery_hint=Giữ pin đồ đang cầm luôn đầy. Với tư cách khách, súng/drone vẫn theo lượng sạc của host; trượng vẫn bắn được sau khi bản của host cạn.
+self.hide_grabber=Ẩn tia giữ đồ
+self.unlimited_fps=Mở khoá FPS
+self.cinematic_hud=HUD điện ảnh
+self.hide_item_labels=Ẩn nhãn đồ vật
+self.no_camera_shake=Không rung camera
+self.feather_fall=Rơi như lông vũ
+self.slow_walk=Đi chậm (Debug)
+self.sprint_priority=Tốc độ siêu cao thắng đi chậm. Giữ phím chạy nước rút để bắt đầu chạy.
+self.instant_gun_buildup=Nạp súng tức thì
+cos.add_tokens=Cộng token trang phục
+cos.add_tokens_bulk=Cộng 40 token
+cos.spawn_cube=Sinh khối lập phương cạnh mục tiêu
+cos.spawn_cube_hint=Kéo khối lập phương vào điểm giao dịch sẽ cho token trang phục (CosmeticWorldObject gốc). Dùng khi họ không có cheat. Gửi token trực tiếp vẫn cần cheat này phía họ.
+cos.cube_spawned=Đã sinh khối lập phương cạnh mục tiêu
+cos.add_tokens_target_fmt=Mục tiêu: {0}
+cos.tokens_self=chính bạn
+cos.tokens_sent_fmt=Đã gửi {0} token cho {1}. Họ cần inject cheat này để nhận.
+cos.tokens_received_fmt=Đã nhận {0} token {1}
+cos.tokens_need_room=Hãy vào một phòng để gửi token cho người chơi khác
+cos.token_none=Không có token trang phục
+cos.token_energy_note=HUD tia sét 999999 là thể lực/năng lượng, không phải token. Token là các mảnh độ hiếm (lưu cục bộ).
+cos.token_machine_hint=Máy cửa hàng: trang phục mới nếu độ hiếm đó còn đồ chưa mở khóa, không thì ra tiền cửa hàng — Thường $2K / Ít gặp $4K / Hiếm $8K / Cực hiếm $15K.
+cos.token_preview_fmt={0} token | T {1} ÍtG {2} H {3} CH {4} | toàn ra tiền {5}K (hiện {6}K → {7}K)
+cos.cashout_tokens=Đổi toàn bộ token lấy tiền
+cos.cashout_need_host=Tiền cửa hàng đồng bộ qua host. Với tư cách khách chỉ xem trước.
+cos.cashout_done_fmt=Đã đổi {0} token → +{1}K (hiện {2}K)
+cos.feed_machine=Nhập toàn bộ token (máy cửa hàng)
+cos.feed_cancel=Ngừng nhập token
+cos.feed_machine_hint=Phải ở cửa hàng. Dùng InteractClientRPC thật — host vẫn phát ~5s mỗi token. Mở khóa các trang phục còn thiếu trước để máy trả tiền cửa hàng thay vì quay trang phục.
+cos.feed_need_shop=Không tìm thấy máy cửa hàng — hãy ghé cửa hàng giữa các level.
+cos.feed_wait_fmt=Chờ máy rảnh… đã nhập {0}, còn {1}
+cos.feed_progress_fmt=Đang nhập… đã nhập {0}, còn {1}
+cos.feed_timeout=Máy mãi bận (hoạt ảnh host hoặc người chơi khác).
+cos.feed_done_fmt=Đã nhập {0} token qua máy cửa hàng
+cos.feed_cancelled=Đã ngừng nhập token
+cos.rarity_pick=Độ hiếm token (áp dụng cho cộng + đặt-tất-cả):
+cos.rarity_common=Thường
+cos.rarity_uncommon=Ít gặp
+cos.rarity_rare=Hiếm
+cos.rarity_ultra=Cực hiếm
+cos.set_all_rarity=Đặt mọi token thành {0}
+cos.set_all_done_fmt=Đã đặt {0} token thành {1}
+items.charge_held=Sạc pin đồ đang cầm
+items.cheap_shop=Giá cửa hàng rẻ hơn
+room.low_haul=Chỉ tiêu điểm giao dịch thấp
+room.fill_valuables=Điền đầy đồ giá trị level sau
+room.unlock_extraction=Mở khóa điểm giao dịch
+room.extra_lives=Đặt số mạng lên 99
+misc.reveal_map=Lộ toàn bộ bản đồ
+items.refresh=Làm mới
+room.named_level=Level theo tên
+room.pick_level=Chọn level
+room.go_named_level=Đi tới level đã chọn
+
+role.solo=Chơi đơn — mọi tính năng khả dụng
+role.host=Host — đồng bộ đầy đủ
+role.guest=Khách — chỉ API cục bộ / quyền sở hữu
+role.host_only=Chỉ dành cho Host hoặc chơi đơn
+role.host_only_tag=[Host]
+role.local_only_tag=[Cục bộ]
+role.guest_hint=Khách: hồi máu, tự di chuyển, dịch chuyển đồ, dịch chuyển quái và đồ chơi đều hoạt động. Sinh đồ, giết, tiền cửa hàng và đổi level cần host.
+role.heal_ok=Hồi máu cho người khác được phép cả khi là khách (HealOtherRPC không kiểm tra người gửi).
+role.revive_guest=Hồi sinh của khách chỉ cục bộ — người khác có thể vẫn thấy bạn nằm dưới đất.
+role.guest_tp_items=Dịch chuyển đồ dùng đường SetPositionRPC của game và hoạt động cả khi là khách.
+role.guest_tp_enemies=Dịch chuyển quái dùng EnemyTeleported (cuộc gọi không kiểm tra host). Hoạt động cả khi là khách.
+role.guest_extract=Khách: yêu cầu host mở điểm giao dịch (RequestExtractionPointActivationRPC của game).
+items.guest_spawn_hint=Sinh đồ của khách dùng PhotonNetwork.Instantiate (bạn sở hữu nó). Có thể biến mất khi bạn rời phòng. Sinh hàng loạt chỉ dành cho host.
+trolling.rpc_dead_hint=v0.4.4.3: bồn cầu/hề/lựu đạn/đổ-vỡ-người-chơi/load-vô-hạn/ngã-lộn-người-khác là MasterOnly. Glitch và câm tiếng chỉ ảnh hưởng chủ sở hữu. Đổ vỡ lobby không bị thay đổi.
+self.look=Nhìn & Camera
+self.grab_guns=Giữ đồ & Súng
+self.extra=Thêm
+self.stats_guest=Khách: thanh trượt áp dụng cục bộ (giữ đồ / tốc độ / nhảy). Từ điển cửa hàng và lưu game vẫn thuộc host.
+self.super_speed=Tốc độ siêu cao
+self.no_death_pit=Bỏ qua hố chết
+self.head_energy=Pin spectate vô hạn
+fun.toys=Đồ chơi
+fun.toys_desc=API game cục bộ theo chủ sở hữu — nảy, ngã lộn và phản trọng lực hoạt động cả khi là khách.
+fun.bounce=Nảy
+fun.antigrav=Bùng phản trọng lực
+fun.self_tumble=Tự ngã lộn
+fun.greenscreen=Màn hình xanh
+fun.light_item=Làm nhẹ đồ đang cầm
+fun.scare_ok_both=Doạ cục bộ + âm nền host đã phát
+fun.scare_ok_local=Đã phát AudioScare cục bộ
+fun.scare_ok_host=Đã phát âm nền phá vỡ của host
+fun.scare_fail=AudioScare / AmbienceBreakers chưa sẵn sàng
+director.title=Đạo diễn
+director.desc=Kết hợp gật đầu, quay, đổi màu, kích thước, nảy và doạ cục bộ. Tự khôi phục.
+director.stop=Dừng và khôi phục
+director.stopped=Đã dừng, trạng thái đã khôi phục
+director.no_avatar=Avatar cục bộ chưa sẵn sàng
+director.birthday=Sinh nhật
+director.birthday_hint=Biểu cảm + nảy + cầu vồng, khôi phục sau 8s
+director.robot=Nhảy robot
+director.robot_hint=Gật → lắc → gyro → ngã lộn → màu → khôi phục
+director.haunted=Ngôi nhà ma ám (âm thanh cục bộ)
+director.haunted_hint=Tiếng doạ cục bộ + thông báo. Không đổi gì trong phòng.
+director.prank_over=Đùa xong
+scope.local=Chỉ cục bộ
+scope.self=Tự sở hữu
+scope.host=Riêng của host
+scope.consent=Cần mod phía mục tiêu
+scope.none=Không khả dụng
+health.title=Tình trạng tính năng
+health.desc=Nếu một nút không có tác dụng, hãy kiểm tra kiểu/phương pháp/Harmony/phạm vi ở đây.
+health.foldout=Hiện kiểm tra tình trạng
+health.harmony_fmt=Harmony đã vá {0} lớp, {1} thất bại
+health.scare_local=Doạ cục bộ AudioScare
+health.scare_ambience=Âm nền host AmbienceBreakers.PlaySoundRPC
+health.expression=Biểu cảm bản thân PlayerExpressionSet
+health.grab=Giữ đồ PhysGrabber
+health.haul=Điểm giao dịch RoundDirector
+health.gyro=Gyro PhotonTransformView
+health.midjoin=Vào trễ PlayerSpawnedRPC
+health.scare_guess=RPC đoán mò đã nghỉ hưu
+haul.hud_title=Trợ lý điểm giao dịch
+haul.desc=Khi đang giữ đồ, hiện giá trị/khối lượng/tốc độ và combo còn thiếu chỉ tiêu. Chỉ đọc trường của game.
+haul.hud_toggle=HUD điểm giao dịch trên màn hình
+haul.quota_fmt=Chỉ tiêu ${0} / ${1}, cần ${2}
+haul.combo_fmt=Đề xuất ${1} (vượt ${2}): {3}
+haul.combo_met=Đã đủ chỉ tiêu
+haul.combo_none=Không có combo hữu ích
+haul.grab_fmt=${0}  khối lượng {1}  giá trị/khối lượng {2}  tốc độ {3}  xoay {4}°  nghiêng {5}°  người giữ {6}
+haul.risk_stable=Ổn định
+haul.risk_wobble=Đang chao đảo
+haul.risk_fast=Quá nhanh / va chạm mạnh
+haul.risk_need_help=Cần một người chơi thứ hai
+midjoin.empty=Không có người chơi nào khác trong hàng chờ vào phòng
+midjoin.row_fmt=Người {0} {1}  phòng{2}  avatar{3}  spawn{4}  module{5}  spawn{6}  xong{7}  sở hữu{8}  chờ {9}s  {10}
+midjoin.diag_legend=✓ nghĩa là người vào đã báo Main; ! nghĩa là host đã bắt kịp nhưng còn thiếu xác nhận cục bộ; ≈ là trạng thái level hiện tại gốc được thông suốt.
+midjoin.current_level_passthrough=≈ Client gốc đã ở trong phòng này. Trạng thái level hiện tại để trên đường xử lý gốc; lỗi hình ảnh/load có thể còn cho tới lần chuyển cảnh bình thường kế tiếp.
+midjoin.diag_native=Chẩn đoán client: không khả dụng cho client gốc chưa mod ở level hiện tại.
+midjoin.diag_fmt=Chẩn đoán client: {0}
+midjoin.diag_wait=Chẩn đoán client: đang chờ bản build inject mới của người vào…
+midjoin.retry=Thử lại bắt kịp
+midjoin.forget=Xoá người này
+midjoin.retry_ok=Đã chạy lại quy trình bắt kịp hiện có
+midjoin.running=Bắt kịp đang chạy rồi
+midjoin.left=Người chơi đã rời đi
+trolling.legacy_unsafe=Phá hoại kiểu cũ (ẩn)
+trolling.legacy_hint=Đổ vỡ, load vô hạn, ngã lộn vô hạn ép buộc. Thu gọn mặc định. Không nâng cấp.
+
+# Tab Đồ vật - Xếp đồ lên điểm giao dịch (ported from D4rkks/r.e.p.o-cheat)
+pack.title=━━ Xếp đồ lên điểm giao dịch ━━
+pack.desc=Xếp phẳng mọi món đồ lên sàn điểm giao dịch (kiểu Tetris). Bật hiện vùng xếp trước để hiệu chỉnh khu vực thả đồ.
+pack.zone_toggle=Hiện vùng xếp (hiệu chỉnh)
+pack.offset_x=Lệch X
+pack.offset_y=Sàn Y
+pack.offset_z=Lệch Z
+pack.size_x=Kích thước X
+pack.size_z=Kích thước Z
+pack.yaw=Xoay
+pack.button=📦 Xếp mọi đồ lên điểm giao dịch
+pack.reset=Đặt lại vùng về mặc định
+pack.done_fmt=Đã xếp {0} món đồ lên sàn điểm giao dịch
+pack.replaced_fmt=Đã xếp lại {0} món đã rời khỏi vùng
+pack.no_items=Không có đồ để xếp
+pack.no_extraction=Không tìm thấy điểm giao dịch đang mở
+pack.guest_hint=Khách: xếp đồ chuyển đồ qua quyền sở hữu; host nên tránh đứng trên sàn trong lúc xếp

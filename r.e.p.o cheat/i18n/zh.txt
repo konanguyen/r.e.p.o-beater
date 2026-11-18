@@ -22,7 +22,7 @@ tab.teleport=传送
 tab.menu=菜单
 
 # 菜单标题
-menu.title=DARK MENU 2.0
+menu.title=REPO BEATER 2.0
 menu.qq_group=QQ 群 865048905
 
 # 导航壳层
@@ -989,3 +989,21 @@ midjoin.running=补同步已在进行
 midjoin.left=该玩家已离开
 trolling.legacy_unsafe=旧版破坏性功能（默认隐藏）
 trolling.legacy_hint=崩溃、无限加载、强制无限翻滚。默认收起，不增强。
+
+# 物品Tab - 码放至撤离点（移植自 D4rkks/r.e.p.o-cheat）
+pack.title=━━ 码放至撤离点 ━━
+pack.desc=把所有物品平铺码放到撤离平台上（俄罗斯方块式堆叠）。先开启区域显示来校准码放范围。
+pack.zone_toggle=显示码放区域（校准）
+pack.offset_x=X 偏移
+pack.offset_y=Y (地面)
+pack.offset_z=Z 偏移
+pack.size_x=X 尺寸
+pack.size_z=Z 尺寸
+pack.yaw=旋转
+pack.button=📦 全部物品码放到撤离点
+pack.reset=重置区域为默认值
+pack.done_fmt=已将 {0} 件物品码放到撤离平台
+pack.replaced_fmt=已重新码放 {0} 件离开区域的物品
+pack.no_items=没有可码放的物品
+pack.no_extraction=未找到开放的撤离点
+pack.guest_hint=房客：码放通过所有权转移移动物品，房主靠近平台时效果可能不稳定

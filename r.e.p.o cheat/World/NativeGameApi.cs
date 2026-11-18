@@ -595,11 +595,113 @@ public static class NativeGameApi
 			names.Sort(StringComparer.OrdinalIgnoreCase);
 			AddItemName(names, seen, "ValuableCubeBall");
 			AddItemName(names, seen, "Cube");
+			AddValuablePresetNames(names, seen);
 		}
 		catch
 		{
 		}
 		return names;
+	}
+
+	/// <summary>预设贵重物的 prefab 资源路径/预制体缓存（按名字查找，供生成器走精确路径）。</summary>
+	public class PresetPrefab
+	{
+		public string Name;
+		public string Path;
+		public GameObject Prefab;
+	}
+
+	private static readonly Dictionary<string, PresetPrefab> valuablePresetMap = new Dictionary<string, PresetPrefab>(StringComparer.OrdinalIgnoreCase);
+
+	public static string LookupValuableResourcePath(string itemName)
+	{
+		return valuablePresetMap.TryGetValue(itemName ?? "", out PresetPrefab p) ? p.Path : null;
+	}
+
+	public static GameObject LookupValuablePrefab(string itemName)
+	{
+		return valuablePresetMap.TryGetValue(itemName ?? "", out PresetPrefab p) ? p.Prefab : null;
+	}
+
+	/// <summary>
+	/// 枚举各关卡 ValuablePresets（tiny/small/medium/big/wide/tall/veryTall）里的贵重物，
+	/// 并记录 PrefabRef 提供的精确资源路径。（移植自 D4rkks/r.e.p.o-cheat ObjectSpawner）
+	/// </summary>
+	private static void AddValuablePresetNames(List<string> names, HashSet<string> seen)
+	{
+		try
+		{
+			RunManager run = RunManager.instance;
+			if (run == null || run.levels == null)
+			{
+				return;
+			}
+			foreach (Level level in run.levels)
+			{
+				if (level == null || level.ValuablePresets == null)
+				{
+					continue;
+				}
+				foreach (LevelValuables preset in level.ValuablePresets)
+				{
+					if (preset == null)
+					{
+						continue;
+					}
+					AddPresetBucket(names, seen, preset.tiny);
+					AddPresetBucket(names, seen, preset.small);
+					AddPresetBucket(names, seen, preset.medium);
+					AddPresetBucket(names, seen, preset.big);
+					AddPresetBucket(names, seen, preset.wide);
+					AddPresetBucket(names, seen, preset.tall);
+					AddPresetBucket(names, seen, preset.veryTall);
+				}
+			}
+		}
+		catch
+		{
+		}
+	}
+
+	private static void AddPresetBucket(List<string> names, HashSet<string> seen, List<PrefabRef> refs)
+	{
+		if (refs == null)
+		{
+			return;
+		}
+		foreach (PrefabRef prefabRef in refs)
+		{
+			try
+			{
+				string n = prefabRef.PrefabName;
+				if (string.IsNullOrEmpty(n) && prefabRef.Prefab != null)
+				{
+					n = prefabRef.Prefab.name;
+				}
+				if (string.IsNullOrEmpty(n))
+				{
+					continue;
+				}
+				AddItemName(names, seen, n);
+				string path = prefabRef.ResourcePath;
+				if (string.IsNullOrEmpty(path) && prefabRef.Prefab != null)
+				{
+					path = "Valuables/" + n;
+				}
+				if (!string.IsNullOrEmpty(path))
+				{
+					valuablePresetMap[n] = new PresetPrefab
+					{
+						Name = n,
+						Path = path,
+						Prefab = prefabRef.Prefab
+					};
+				}
+			}
+			catch
+			{
+			}
+		}
 	}
 
 	private static void AddItemNames(List<string> names, HashSet<string> seen, Dictionary<string, Item> dictionary)

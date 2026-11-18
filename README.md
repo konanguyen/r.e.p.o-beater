@@ -1,12 +1,23 @@
-# r.e.p.o-cheat
+# REPO Beater
 
 An open-source C# Mono cheat for the Unity game [R.E.P.O.](https://store.steampowered.com/app/2594580/REPO/), injected at runtime through SharpMonoInjector and patched with Harmony.
+
+> **REPO Beater fork** — based on [Mai-xiyu/r.e.p.o-cheat](https://github.com/Mai-xiyu/r.e.p.o-cheat) v2.5.1, with additional features ported from [D4rkks/r.e.p.o-cheat](https://github.com/D4rkks/r.e.p.o-cheat) (see [Ported features](#ported-features)). Intended for solo / private-friends play; please do not use it in public lobbies.
 
 > This project is open source and free to use. It is provided for personal and educational purposes only. Use it in your own private sessions and respect other players. The authors are not responsible for how it is used.
 
 - [中文文档](README_CN.md)
 
 **Current release: [v2.5.1](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.5.1)** — adapted for R.E.P.O. v0.4.4.3.
+
+## Ported features
+
+Features merged from D4rkks/r.e.p.o-cheat that the base did not have:
+
+- **Pack to Extraction** (Items tab): stacks every item flat onto the extraction platform, Tetris-style — exact collider footprints, heightmap stacking, biggest-first placement, and a supervisor that re-places items which roll out after physics settles. The drop zone (offset / size / yaw relative to the extraction point) is calibratable with sliders and a live zone overlay (green frame, red front edge).
+- **Level valuable presets in the item spawner**: the spawner list now enumerates every valuable from all levels' `ValuablePresets` (tiny/small/medium/big/wide/tall/veryTall buckets) and spawns them through the exact `PrefabRef.ResourcePath` instead of name heuristics.
+- **Client-side enemy health sync**: enemy ESP health bars are now accurate for non-host players — incoming `HurtRPC` / `DeathRPC` events (Photon RPC event code 200) are decoded and applied to the local `EnemyHealth.healthCurrent` copy, which the game only updates on the host.
+- **Vietnamese menu language**: full 903-key Vietnamese translation (`i18n/vi.txt`). Switch via **Menu → Language → Tiếng Việt** (English / 简体中文 / Tiếng Việt are all bundled).
 
 ## Compatibility
 
@@ -30,7 +41,7 @@ Host-only actions are tagged `[Host]` in the menu. Guests keep owner-local and u
 - **Visuals**: TMP-based ESP (enemies, items, players, extraction points) with boxes/names/distance/health/value filters, chams, mini radar, trace lines, ESP presets, map value summary, player status list, **full map reveal**.
 - **Combat and players**: damage/heal/kill/revive players, teleport players, name spoofing, possession, aimbot with smoothness and range settings, **bullet track** (host/solo; redirects `ItemGun.ShootBullet`).
 - **Enemies**: blind/freeze/kill/despawn enemies via the game's own EnemyDirector/EnemyParent APIs, disable traps (`Trap` base type), **teleport enemies** (`EnemyTeleported`, guest-safe), enemy spawner (host only, `PhotonNetwork.InstantiateRoomObject`), **easy grab / spawn close / no spawn pause** debug flags.
-- **Items**: item spawner from `StatsManager.itemDictionary` (host: room objects; **guest: `PhotonNetwork.Instantiate`**, may despawn on leave). Item teleport (`SetPositionRPC`), value inflation (host), duplicate held item, **charge held battery**, remote sell, auto pickup, auto sell.
+- **Items**: item spawner from `StatsManager.itemDictionary` **plus all level valuable presets** (host: room objects; **guest: `PhotonNetwork.Instantiate`**, may despawn on leave). Item teleport (`SetPositionRPC`), value inflation (host), duplicate held item, **charge held battery**, remote sell, auto pickup, auto sell, **pack to extraction** (Tetris-style stacking, see [Ported features](#ported-features)).
 - **Teleport**: crosshair teleport, extraction teleport, random teleport, named waypoints, synced through the game's own `PhysGrabObject.Teleport` API.
 - **World**: zero haul goal / **low-haul debug flag**, auto-complete round, chat commands (`!help`), shop tools (run currency via `SetRunStatSet` plus **cheap shop prices**, host), extra lives, unlock extraction, **request extraction** (`RoundDirector.RequestExtractionPointActivation`, guest-safe), discover valuables (`DiscoverRPC`), fill valuables next level, level transitions via `RunManager.ChangeLevel` plus **named level picker** (`debugLevel`). Native wrappers live in `World/NativeGameApi.cs`.
 - **Cosmetics**: unlock all cosmetics (game-native `CosmeticUnlockAll` + save), random outfit, rainbow cosmetics cycle - all through the game's own MetaManager/PlayerCosmetics pipeline with lobby sync.
@@ -98,6 +109,12 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 Contributions are welcome. Please keep the compatibility layer up to date when adapting to a new game version: update the fingerprint in `Compatibility\GameVersionInfo.cs`, re-run the API diff described in `.api-compatibility.md`, and keep the test suite green.
 
 ## Changelog
+
+### REPO Beater fork (2026-11-19)
+
+- Based on Mai-xiyu/r.e.p.o-cheat v2.5.1 (game v0.4.4.3 baseline unchanged).
+- Ported from D4rkks/r.e.p.o-cheat: pack-to-extraction (Tetris ItemPacker + calibration zone + zone overlay), level valuable presets in the spawner (exact `PrefabRef.ResourcePath` spawns), client-side enemy health sync (Photon event 200 decode).
+- Menu title rebranded to `REPO BEATER 2.0`; i18n strings added for the new section (en/zh).
 
 ### [v2.3.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.3.0) — 2026-08-16
 
