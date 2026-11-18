@@ -111,6 +111,13 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 
 ## 更新日志
 
+### v2.6.1（2026-11-19）
+
+- 热修复：游戏自动更新到 **v0.5.2**（Unity 6000.3.28f1）——作弊菜单不再每帧抛出 `MissingMethodException`/`MissingFieldException`（之前会饿死主线程，让菜单点击看起来失效）。
+- `GameApiSafe` 反射助手：缺失成员只记录一次、SteamManager 改用 FindObjectOfType（v0.5.2 移除了单例字段）、`OverrideSpeed` 按运行时签名自动补参。
+- 所有外部 tick 加上 `SafeRun` 保护：以后游戏更新只会优雅降级，不再冻结菜单。
+- 游戏版本与构建基线不一致时弹出一次兼容性提示。
+
 ### v2.6.0（2026-11-19）
 
 - CI：推送 `v*` 标签时 GitHub Actions 自动构建并发布 Release，附带 `REPOBeater.Injector.exe`（+SHA256）与独立 payload DLL。

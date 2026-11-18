@@ -110,6 +110,13 @@ Contributions are welcome. Please keep the compatibility layer up to date when a
 
 ## Changelog
 
+### v2.6.1 (2026-11-19)
+
+- Hotfix: game auto-updated to **v0.5.2** (Unity 6000.3.28f1) — the cheat no longer throws `MissingMethodException`/`MissingFieldException` every frame (which starved the main thread until menu clicks appeared dead).
+- `GameApiSafe` reflection helpers: log-once missing members, FindObjectOfType-based SteamManager access (v0.5.2 removed the singleton), signature-padded `OverrideSpeed`.
+- All external ticks wrapped (`SafeRun`) so future game updates degrade features gracefully instead of freezing the menu.
+- Compatibility toast shown once when the game differs from the build baseline.
+
 ### v2.6.0 (2026-11-19)
 
 - CI: GitHub Actions builds on every pushed `v*` tag and publishes a release with `REPOBeater.Injector.exe` (+SHA256) and the standalone payload DLL.

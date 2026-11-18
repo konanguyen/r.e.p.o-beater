@@ -118,12 +118,12 @@ jobs:
           body: |
             ### REPO Beater ${{ github.ref_name }}
 
-            Adapted for R.E.P.O. **v0.4.4.3**. Menu languages: Tiếng Việt / English / 简体中文 (Menu → Language).
+            Adapted for R.E.P.O. **v0.4.4.3** (v2.6.1+ also runs safely on **v0.5.2** with degraded Steam-lobby features). Menu languages: Tiếng Việt / English / 简体中文 (Menu → Language).
 
             ### Downloads
             - `REPOBeater.Injector.exe` — auto-finds `repo.exe` and injects the embedded payload (no extra DLL needed)
             - `REPOBeater.Injector.exe.sha256` — checksum
-            - `REPOBeater-v2.6.0.dll` — standalone payload for SharpMonoInjector (`-n r.e.p.o_cheat -c Loader -m Init`)
+            - `REPOBeater-v${{ github.ref_name }}.dll` — standalone payload for SharpMonoInjector (`-n r.e.p.o_cheat -c Loader -m Init`)
 
             ### Usage
             1. Start R.E.P.O. (solo / private lobby only).
