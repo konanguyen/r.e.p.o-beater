@@ -1012,3 +1012,5 @@ pack.guest_hint=房客：码放通过所有权转移移动物品，房主靠近�
 compat.mismatch_fmt=游戏版本与构建基线 ({0}) 不一致 - 部分功能可能降级。请在 Config 页查看功能健康状态。
 
 self.mute_lobby_audio= 静音大厅卡车声音
+
+combat.grab_recover=🔓 恢复拾取（翻倒后/卡住时）

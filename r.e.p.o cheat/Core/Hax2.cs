@@ -2638,6 +2638,10 @@ public partial class Hax2 : MonoBehaviour
 			GUILayout.Label(L.T("combat.aimbot_range_fmt", Aimbot.maxDistance.ToString("F0")), labelStyle, Array.Empty<GUILayoutOption>());
 			Aimbot.maxDistance = GUILayout.HorizontalSlider(Aimbot.maxDistance, 10f, 200f, (GUILayoutOption[])(object)new GUILayoutOption[1] { GUILayout.Width(200f) });
 		}
+		if (GUILayout.Button(L.T("combat.grab_recover"), buttonStyle, Array.Empty<GUILayoutOption>()))
+		{
+			PlayerTumblePatch.RecoverLocalGrab();
+		}
 		GUILayout.Space(10f);
 		HostOnlyToggle("bullet_track", L.T("combat.bullet_track"), ref BulletTrack.Enabled);
 		if (BulletTrack.Enabled)

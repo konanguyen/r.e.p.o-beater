@@ -1012,3 +1012,5 @@ pack.guest_hint=Guest: packing moves items via ownership transfer; the host may 
 compat.mismatch_fmt=Game version differs from the build baseline ({0}) - some features may be degraded. Check Feature health (Config tab).
 
 self.mute_lobby_audio= Mute Lobby Truck Sounds
+
+combat.grab_recover=🔓 Recover Grab (after tumble / stuck)

@@ -36,6 +36,9 @@ public static class Aimbot
         if (!isEnabled) return;
         if (!Input.GetKey(aimKey)) { currentTarget = null; return; }
 
+        // Đang ngã lộn thì ngừng điều khiển camera - tránh chống lại ragdoll physics
+        if (IsLocalTumbling()) { currentTarget = null; return; }
+
         // 检查是否持枪
         if (!IsHoldingGun()) return;
 
@@ -46,6 +49,50 @@ public static class Aimbot
 
         // 瞄准
         AimAt(nearest);
+    }
+
+    private static Component _localTumble;
+    private static FieldInfo _tumbleStateField;
+
+    /// <summary>
+    /// Phát hiện người chơi cục bộ đang ngã lộn, hỗ trợ cả schema cũ (tumbleActive)
+    /// lẫn v0.5.2+ (tumbleRequestIsTumbling / tumbleOverride). Không tìm thấy field nào
+    /// thì coi như không tumble.
+    /// </summary>
+    private static bool IsLocalTumbling()
+    {
+        try
+        {
+            GameObject localPlayer = DebugCheats.GetLocalPlayer();
+            if (localPlayer == null) return false;
+
+            if (_localTumble == null)
+            {
+                _localTumble = localPlayer.GetComponent("PlayerTumble") as Component;
+            }
+            else if ((Object)(object)_localTumble.transform.root != (Object)(object)localPlayer.transform.root)
+            {
+                _localTumble = localPlayer.GetComponent("PlayerTumble") as Component;
+                _tumbleStateField = null;
+            }
+            if (_localTumble == null) return false;
+
+            Type tumbleType = _localTumble.GetType();
+            if (_tumbleStateField == null)
+            {
+                foreach (string name in new[] { "tumbleActive", "tumbleRequestIsTumbling", "tumbleOverride" })
+                {
+                    _tumbleStateField = tumbleType.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (_tumbleStateField != null) break;
+                }
+                if (_tumbleStateField == null) return false;
+            }
+            return _tumbleStateField.GetValue(_localTumble) is bool tumbling && tumbling;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     private static bool IsHoldingGun()
@@ -175,8 +222,12 @@ public static class Aimbot
         Vector3 direction = targetPos - cam.transform.position;
         if (direction.sqrMagnitude < 0.01f) return;
 
+        // Giới hạn tốc độ quay (°/s) - quay quá nhanh làm khẩu súng (physics spring)
+        // văng theo và đập vào chính người chơi -> game trigger tumble.
+        float degreesPerSecond = Mathf.Clamp(60f + smoothness * 30f, 60f, 960f);
+        float maxDegrees = degreesPerSecond * Time.deltaTime;
         Quaternion targetRot = Quaternion.LookRotation(direction);
-        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRot, smoothness * Time.deltaTime);
+        cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, targetRot, maxDegrees);
     }
 
     public static bool HasTarget()
