@@ -1010,3 +1010,5 @@ pack.guest_hint=Khách: xếp đồ chuyển đồ qua quyền sở hữu; host 
 
 # Cảnh báo tương thích
 compat.mismatch_fmt=Phiên bản game khác với baseline của build ({0}) - một số tính năng có thể bị hạn chế. Xem Tình trạng tính năng ở tab Cấu hình.
+
+self.mute_lobby_audio= Tắt tiếng xe tải ở sảnh

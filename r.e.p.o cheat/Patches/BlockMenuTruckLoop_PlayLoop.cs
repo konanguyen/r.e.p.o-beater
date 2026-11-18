@@ -8,6 +8,10 @@ internal class BlockMenuTruckLoop_PlayLoop
 {
 	private static bool Prefix(object __instance, ref bool playing)
 	{
+		if (!Hax2.muteLobbyAudio)
+		{
+			return true;
+		}
 		object value = AccessTools.Field(__instance.GetType(), "Source").GetValue(__instance);
 		AudioSource val = (AudioSource)((value is AudioSource) ? value : null);
 		if ((Object)(object)((val != null) ? val.clip : null) != (Object)null && ((Object)val.clip).name == "menu truck engine loop")

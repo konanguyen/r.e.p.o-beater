@@ -16,6 +16,10 @@ internal class BlockMultipleMenuSounds_Play
 
 	private static bool Prefix(AudioSource __instance)
 	{
+		if (!Hax2.muteLobbyAudio)
+		{
+			return true;
+		}
 		if ((Object)(object)((__instance != null) ? __instance.clip : null) != (Object)null)
 		{
 			string name = ((Object)__instance.clip).name;

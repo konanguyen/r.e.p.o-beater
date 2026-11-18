@@ -350,6 +350,10 @@ public partial class Hax2 : MonoBehaviour
 
 	public static bool showWatermark = true;
 
+	// Tắt âm thanh xe tải/sảnh (mặc định: tắt = giữ nguyên âm thanh game).
+	// Hai patch BlockMenuTruckLoop/BlockMultipleMenuSounds chỉ chặn khi cờ này bật.
+	public static bool muteLobbyAudio = false;
+
 	// cached GUI styles for OnGUI hot paths (allocated once, theme-aware where needed)
 	private static GUIStyle _watermarkStyle;
 	private static GUIStyle _playerListStyle;
@@ -2112,6 +2116,8 @@ public partial class Hax2 : MonoBehaviour
 			ToggleLogic("No_Fog", L.T("self.no_fog"), ref MiscFeatures.NoFogEnabled, MiscFeatures.ToggleNoFog);
 			GUILayout.Space(5f);
 			ToggleLogic("WaterMark_Toggle", L.T("self.watermark"), ref showWatermark);
+			GUILayout.Space(5f);
+			ToggleLogic("Mute_Lobby_Audio", L.T("self.mute_lobby_audio"), ref muteLobbyAudio);
 			GUILayout.Space(5f);
 			ToggleLogic("head_energy", L.T("self.head_energy"), ref NativeGameApi.InfiniteHeadEnergy);
 			if ((Object)(object)FOVEditor.Instance == (Object)null)
