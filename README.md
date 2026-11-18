@@ -110,6 +110,13 @@ Contributions are welcome. Please keep the compatibility layer up to date when a
 
 ## Changelog
 
+### v2.6.2 (2026-11-19)
+
+- Aimbot fix: the camera sweep is now angle-rate limited (`RotateTowards`, ~360°/s at default smoothness) — the previous world-rotation Slerp could whip the grabbed gun into the player and trigger a tumble.
+- Aimbot pauses while the local player is tumbling (schema-aware for v0.5.2's renamed tumble fields).
+- Grabber auto-recovery: `PhysGrabber.grabDisableTimer` is cleared as soon as a tumble ends, plus a manual **🔓 Recover Grab** button in the Combat tab.
+- Lobby/truck sounds restored: `BlockMenuTruckLoop_PlayLoop` / `BlockMultipleMenuSounds_Play` are now opt-in via the **Mute Lobby Truck Sounds** toggle (Self tab), default off.
+
 ### v2.6.1 (2026-11-19)
 
 - Hotfix: game auto-updated to **v0.5.2** (Unity 6000.3.28f1) — the cheat no longer throws `MissingMethodException`/`MissingFieldException` every frame (which starved the main thread until menu clicks appeared dead).

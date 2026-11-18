@@ -111,6 +111,13 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 
 ## 更新日志
 
+### v2.6.2（2026-11-19）
+
+- 自瞄修复：镜头旋转改为限角速度（`RotateTowards`，默认平滑度约 360°/s）——旧的世界旋转 Slerp 可能把枪甩到自己身上触发翻倒。
+- 本地玩家翻倒时自瞄自动暂停（兼容 v0.5.2 改名的 tumble 字段）。
+- 翻倒结束立即清除 `PhysGrabber.grabDisableTimer`，Combat 页新增 **🔓 恢复拾取** 手动按钮。
+- 大厅音效恢复：`BlockMenuTruckLoop_PlayLoop` / `BlockMultipleMenuSounds_Play` 改为通过 **静音大厅卡车声音** 开关启用（Self 页），默认关闭。
+
 ### v2.6.1（2026-11-19）
 
 - 热修复：游戏自动更新到 **v0.5.2**（Unity 6000.3.28f1）——作弊菜单不再每帧抛出 `MissingMethodException`/`MissingFieldException`（之前会饿死主线程，让菜单点击看起来失效）。
