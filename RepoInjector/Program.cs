@@ -57,7 +57,7 @@ internal static class Program
 				"Assembly: " + address + "\n\n" +
 				"Open or close the menu with Delete.";
 			Log(success.Replace(Environment.NewLine, " | "));
-			ShowInfo("DARK MENU Injector", success);
+			ShowInfo("REPO BEATER Injector", success);
 			return 0;
 		}
 		catch (Exception exception)
@@ -66,7 +66,7 @@ internal static class Program
 				"\n\nEnsure R.E.P.O. is running, uses its Mono runtime, and was started normally.\n" +
 				"Diagnostics: " + GetLogPath();
 			Log("Injection failed: " + exception);
-			MessageBox.Show(failure, "DARK MENU Injector", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(failure, "REPO BEATER Injector", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return 1;
 		}
 	}
@@ -186,7 +186,7 @@ internal static class Program
 	{
 		string directory = Path.Combine(
 			Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-			"DarkMenu");
+			"REPOBeater");
 		return Path.Combine(directory, "injector.log");
 	}
 

@@ -8,7 +8,7 @@
 
 - [English Documentation](README.md)
 
-**当前版本：[v2.5.1](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.5.1)** — 适配 R.E.P.O. v0.4.4.3。
+**当前版本：[v2.5.1](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.5.1)** — 适配 R.E.P.O. v0.4.4.3。
 
 ## 移植功能
 
@@ -51,9 +51,9 @@
 
 ## 使用
 
-1. 从 [Releases](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases) 下载 `DarkMenu.Injector.exe`，或按下文自行构建。
+1. 从 [Releases](https://github.com/konanguyen/r.e.p.o-beater/releases) 下载 `REPOBeater.Injector.exe`，或按下文自行构建。
 2. 正常启动 R.E.P.O.。
-3. 运行 `DarkMenu.Injector.exe` 并同意 Windows UAC 提权。它只会目标定位到 `repo.exe`，内含 payload DLL，不再需要额外 DLL 或 `smi.exe`。
+3. 运行 `REPOBeater.Injector.exe` 并同意 Windows UAC 提权。它只会目标定位到 `repo.exe`，内含 payload DLL，不再需要额外 DLL 或 `smi.exe`。
 4. 按 **Delete** 打开/关闭菜单（可在热键页改键）。**F5** 重载菜单，**F10** 卸载。
 5. 启动器诊断写入 `%LOCALAPPDATA%\DarkMenu\injector.log`；初始化和每个 Harmony 补丁类的结果仍写入 `C:\temp\inject_debug.txt`。
 
@@ -80,7 +80,7 @@ dotnet build "r.e.p.o cheat.sln" -c Release
 dotnet publish "RepoInjector/RepoInjector.csproj" -c Release -o artifacts/injector
 ```
 
-启动器产物为 `artifacts\injector\DarkMenu.Injector.exe`。它通过应用清单请求管理员权限，内嵌 payload DLL，并打包 MIT 许可的 SharpMonoInjector 核心。开发时仍可使用 `r.e.p.o cheat\bin\Release\r.e.p.o cheat.dll`。
+启动器产物为 `artifacts\injector\REPOBeater.Injector.exe`。它通过应用清单请求管理员权限，内嵌 payload DLL，并打包 MIT 许可的 SharpMonoInjector 核心。开发时仍可使用 `r.e.p.o cheat\bin\Release\r.e.p.o cheat.dll`。
 
 ## 测试
 
@@ -117,7 +117,7 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 - 从 D4rkks/r.e.p.o-cheat 移植：码放至撤离点（Tetris ItemPacker + 校准区域 + 区域线框）、生成器加入关卡贵重物预设（按 `PrefabRef.ResourcePath` 精确生成）、房客侧敌血同步（Photon 事件码 200 解码）。
 - 菜单标题改为 `REPO BEATER 2.0`；新增区块的 i18n 字符串（中/英）。
 
-### [v2.3.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.3.0) — 2026-08-16
+### [v2.3.0](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.3.0) — 2026-08-16
 
 - 房客可用：手持无限电池、请求撤离、物品生成/复制、发现贵重品、物品传送。仅房主功能在菜单中标注。
 - `NativeGameApi` 封装当前 v0.4.4.3 调试/房主 API（敌人、地图、搬运、商店、关卡、电池）。
@@ -125,7 +125,7 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 - 自身/战斗：忽略死亡坑、无限观战电池、子弹追踪（房主/单人）。
 - 测试：`powershell -ExecutionPolicy Bypass -File run-tests.ps1`（21/21）。
 
-### [v2.2.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.2.0)
+### [v2.2.0](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.2.0)
 
 装扮套件与游戏原生 API 功能重整（v0.4.4.3）。
 

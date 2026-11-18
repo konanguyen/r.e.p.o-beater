@@ -11,7 +11,7 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <DebugType>embedded</DebugType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyName>DarkMenu.Injector</AssemblyName>
+    <AssemblyName>REPOBeater.Injector</AssemblyName>
     <RootNamespace>DarkMenu.Injector</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>

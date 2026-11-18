@@ -8,7 +8,7 @@ An open-source C# Mono cheat for the Unity game [R.E.P.O.](https://store.steampo
 
 - [中文文档](README_CN.md)
 
-**Current release: [v2.5.1](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.5.1)** — adapted for R.E.P.O. v0.4.4.3.
+**Current release: [v2.5.1](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.5.1)** — adapted for R.E.P.O. v0.4.4.3.
 
 ## Ported features
 
@@ -50,9 +50,9 @@ Host-only actions are tagged `[Host]` in the menu. Guests keep owner-local and u
 
 ## Usage
 
-1. Download `DarkMenu.Injector.exe` from [Releases](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases), or build it from source below.
+1. Download `REPOBeater.Injector.exe` from [Releases](https://github.com/konanguyen/r.e.p.o-beater/releases), or build it from source below.
 2. Start R.E.P.O. normally.
-3. Run `DarkMenu.Injector.exe` and approve its Windows UAC prompt. It targets only `repo.exe`; the payload DLL is embedded, so no separate DLL or `smi.exe` is required.
+3. Run `REPOBeater.Injector.exe` and approve its Windows UAC prompt. It targets only `repo.exe`; the payload DLL is embedded, so no separate DLL or `smi.exe` is required.
 4. Open/close the menu with **Delete** (rebindable in the Hotkeys tab). **F5** reloads the menu, **F10** unloads the cheat.
 5. Launcher diagnostics are written to `%LOCALAPPDATA%\DarkMenu\injector.log`; initialization and Harmony patch results remain in `C:\temp\inject_debug.txt`.
 
@@ -79,7 +79,7 @@ dotnet build "r.e.p.o cheat.sln" -c Release
 dotnet publish "RepoInjector/RepoInjector.csproj" -c Release -o artifacts/injector
 ```
 
-The launcher output is `artifacts\injector\DarkMenu.Injector.exe`. It requests administrator rights through its application manifest, embeds the payload DLL, and bundles the MIT-licensed SharpMonoInjector core. The payload DLL remains available at `r.e.p.o cheat\bin\Release\r.e.p.o cheat.dll` for development.
+The launcher output is `artifacts\injector\REPOBeater.Injector.exe`. It requests administrator rights through its application manifest, embeds the payload DLL, and bundles the MIT-licensed SharpMonoInjector core. The payload DLL remains available at `r.e.p.o cheat\bin\Release\r.e.p.o cheat.dll` for development.
 
 ## Tests
 
@@ -116,7 +116,7 @@ Contributions are welcome. Please keep the compatibility layer up to date when a
 - Ported from D4rkks/r.e.p.o-cheat: pack-to-extraction (Tetris ItemPacker + calibration zone + zone overlay), level valuable presets in the spawner (exact `PrefabRef.ResourcePath` spawns), client-side enemy health sync (Photon event 200 decode).
 - Menu title rebranded to `REPO BEATER 2.0`; i18n strings added for the new section (en/zh).
 
-### [v2.3.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.3.0) — 2026-08-16
+### [v2.3.0](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.3.0) — 2026-08-16
 
 - Guest-safe paths for unlimited battery (held items), extraction request, item spawn/duplicate, valuable discovery, and item teleport. Host-only controls are labeled in the menu.
 - `NativeGameApi` wraps live v0.4.4.3 debug/host APIs (enemies, map, haul, shop, levels, battery fill).
@@ -124,7 +124,7 @@ Contributions are welcome. Please keep the compatibility layer up to date when a
 - Self/combat extras: ignore death pit, spectate battery, bullet track (host/solo).
 - Tests: `powershell -ExecutionPolicy Bypass -File run-tests.ps1` (21/21).
 
-### [v2.2.0](https://github.com/Mai-xiyu/r.e.p.o-cheat/releases/tag/v2.2.0)
+### [v2.2.0](https://github.com/konanguyen/r.e.p.o-beater/releases/tag/v2.2.0)
 
 Cosmetics suite and game-API feature overhaul for v0.4.4.3.
 
