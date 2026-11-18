@@ -256,7 +256,8 @@ public static class LobbyFinder
 
 	public static void JoinLobbyAndPlay(Lobby lobby)
 	{
-		if (lobby.Id.Value == 0uL || SteamManager.instance == null)
+		SteamManager steam = GameApiSafe.Steam();
+		if (lobby.Id.Value == 0uL || steam == null)
 		{
 			Debug.LogError((object)"[JoinLobby] invalid lobby");
 			return;
@@ -265,7 +266,7 @@ public static class LobbyFinder
 		try
 		{
 			typeof(SteamManager).GetMethod("JoinSteamLobby", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-				?.Invoke(SteamManager.instance, new object[] { lobby });
+				?.Invoke(steam, new object[] { lobby });
 		}
 		catch (Exception ex)
 		{

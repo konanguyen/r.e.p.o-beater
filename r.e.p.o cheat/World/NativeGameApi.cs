@@ -1434,7 +1434,7 @@ public static class NativeGameApi
 			}
 			if (SuperSpeed)
 			{
-				pc.OverrideSpeed(3.5f, 1.1f);
+				InvokeOverrideSpeed(pc, 3.5f, 1.1f);
 				_hadSuperSpeed = true;
 				return;
 			}
@@ -1477,6 +1477,36 @@ public static class NativeGameApi
 		catch
 		{
 			return false;
+		}
+	}
+
+	/// <summary>
+	/// v0.4.4.3: OverrideSpeed(float, float); v0.5.2+: OverrideSpeed(float, float, float sprintCap).
+	/// Gọi qua reflection, tự pad tham số theo signature của game đang chạy.
+	/// </summary>
+	private static void InvokeOverrideSpeed(global::PlayerController pc, float speedMulti, float time)
+	{
+		try
+		{
+			MethodInfo mi = typeof(global::PlayerController).GetMethod("OverrideSpeed", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+			if (mi == null)
+			{
+				GameApiSafe.ReportMissing("PlayerController.OverrideSpeed");
+				return;
+			}
+			ParameterInfo[] parameters = mi.GetParameters();
+			if (parameters.Length >= 3)
+			{
+				mi.Invoke(pc, new object[3] { speedMulti, time, speedMulti });
+			}
+			else
+			{
+				mi.Invoke(pc, new object[2] { speedMulti, time });
+			}
+		}
+		catch (Exception ex)
+		{
+			GameApiSafe.ReportMissing("PlayerController.OverrideSpeed (" + ex.GetType().Name + ")");
 		}
 	}
 

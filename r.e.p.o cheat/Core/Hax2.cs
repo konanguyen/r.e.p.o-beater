@@ -9,6 +9,7 @@ using Photon.Realtime;
 using Steamworks;
 using Steamworks.Data;
 using UnityEngine;
+using r.e.p.o_cheat.Compatibility;
 using r.e.p.o_cheat.Localization;
 
 namespace r.e.p.o_cheat;
@@ -691,6 +692,43 @@ public partial class Hax2 : MonoBehaviour
 		PlayerController.ReapplyAllStats();
 	}
 
+	// Mỗi tính năng tick ngoài chỉ được báo lỗi MỘT lần - game update làm vỡ API
+	// không được phép spam Player.log hay đóng băng vòng frame nữa.
+	private static readonly HashSet<string> _safeRunReported = new HashSet<string>();
+
+	private void SafeRun(string name, Action action)
+	{
+		try
+		{
+			action();
+		}
+		catch (Exception ex)
+		{
+			if (_safeRunReported.Add(name))
+			{
+				Debug.LogWarning((object)$"[Hax2] Tick '{name}' failed once: {ex.GetType().Name}: {ex.Message}");
+			}
+		}
+	}
+
+	// Cảnh báo khi game đã update vượt quá baseline build (v0.4.4.3) — ví dụ v0.5.2 (Unity 6).
+	private void WarnIfGameUpdated()
+	{
+		try
+		{
+			if (GameVersionInfo.State == CompatState.Exact)
+			{
+				return;
+			}
+			string message = L.T("compat.mismatch_fmt", GameVersionInfo.KnownGameVersion);
+			ToastNotification.ShowWarning(string.IsNullOrEmpty(message) ? "Game version differs from the build baseline (" + GameVersionInfo.KnownGameVersion + ") - some features may be degraded." : message);
+			Debug.LogWarning((object)$"[Compat] Game Assembly-CSharp {GameVersionInfo.RuntimeSha256.Substring(0, 8)} != baseline {GameVersionInfo.KnownSha256.Substring(0, 8)} (state: {GameVersionInfo.State})");
+		}
+		catch
+		{
+		}
+	}
+
 	public void Start()
 	{
 		//IL_0041: Unknown result type (might be due to invalid IL or missing references)
@@ -711,6 +749,7 @@ public partial class Hax2 : MonoBehaviour
 		//IL_0118: Expected O, but got Unknown
 		hotkeyManager = HotkeyManager.Instance;
 		availableItemsList = ItemSpawner.GetAvailableItems();
+		WarnIfGameUpdated();
 		if ((Object)(object)unlimitedBatteryComponent == (Object)null)
 		{
 			GameObject val = new GameObject("BatteryManager");
@@ -786,8 +825,8 @@ public partial class Hax2 : MonoBehaviour
 		}
 		Troll.EnsurePhotonEventHook();
 		CosmeticFeatures.EnsurePhotonEventHook();
-		EnemyHealthSync.Tick();
-		EyeColorEffects.Tick();
+		SafeRun("EnemyHealthSync.Tick", EnemyHealthSync.Tick);
+		SafeRun("EyeColorEffects.Tick", EyeColorEffects.Tick);
 
 		// Smooth ease-out animation
 		float target = _isExpanding ? 1f : 0f;
@@ -845,10 +884,10 @@ public partial class Hax2 : MonoBehaviour
 		{
 			bool inPlay = true;
 			try { inPlay = !SemiFunc.IsMainMenu(); } catch { }
-			CosmeticFeatures.TickRainbow();
-			CosmeticFeatures.TickLiveRandom();
-			NativeGameApi.Tick();
-			hotkeyManager.CheckAndExecuteHotkeys();
+			SafeRun("CosmeticFeatures.TickRainbow", CosmeticFeatures.TickRainbow);
+			SafeRun("CosmeticFeatures.TickLiveRandom", CosmeticFeatures.TickLiveRandom);
+			SafeRun("NativeGameApi.Tick", NativeGameApi.Tick);
+			SafeRun("Hotkeys.CheckAndExecute", hotkeyManager.CheckAndExecuteHotkeys);
 			if (showMenu)
 			{
 				TryLockCamera();
@@ -877,9 +916,9 @@ public partial class Hax2 : MonoBehaviour
 				ScaleSync.Update();
 			}
 		}
-		PlayerAura.Update();
-		EffectDirector.Tick();
-		HaulAssistant.Tick();
+		SafeRun("PlayerAura.Update", PlayerAura.Update);
+		SafeRun("EffectDirector.Tick", EffectDirector.Tick);
+		SafeRun("HaulAssistant.Tick", HaulAssistant.Tick);
 		// 定期强制重新应用升级值（防止主机覆盖）
 		_upgradeEnforceTimer += Time.deltaTime;
 		if (_upgradeEnforceTimer >= UPGRADE_ENFORCE_INTERVAL)

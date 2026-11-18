@@ -93,7 +93,7 @@ public static class RoomCreator
 		string region = GetPhotonRegion(regionFilterIndex);
 		try
 		{
-			SteamManager.instance?.LeaveLobby();
+			GameApiSafe.Invoke(GameApiSafe.Steam(), "LeaveLobby");
 		}
 		catch
 		{

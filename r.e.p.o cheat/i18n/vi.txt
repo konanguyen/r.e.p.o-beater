@@ -1007,3 +1007,6 @@ pack.replaced_fmt=Đã xếp lại {0} món đã rời khỏi vùng
 pack.no_items=Không có đồ để xếp
 pack.no_extraction=Không tìm thấy điểm giao dịch đang mở
 pack.guest_hint=Khách: xếp đồ chuyển đồ qua quyền sở hữu; host nên tránh đứng trên sàn trong lúc xếp
+
+# Cảnh báo tương thích
+compat.mismatch_fmt=Phiên bản game khác với baseline của build ({0}) - một số tính năng có thể bị hạn chế. Xem Tình trạng tính năng ở tab Cấu hình.

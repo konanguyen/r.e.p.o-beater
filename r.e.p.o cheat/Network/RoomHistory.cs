@@ -96,10 +96,11 @@ public static class RoomHistory
 			ulong steamId = 0uL;
 			try
 			{
-				if (SteamManager.instance != null)
+				SteamManager steam = GameApiSafe.Steam();
+				if (steam != null)
 				{
 					FieldInfo field = typeof(SteamManager).GetField("currentLobby", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-					if (field?.GetValue(SteamManager.instance) is Lobby cur && cur.Id.Value != 0uL)
+					if (field?.GetValue(steam) is Lobby cur && cur.Id.Value != 0uL)
 					{
 						steamId = cur.Id.Value;
 						Capture(cur);

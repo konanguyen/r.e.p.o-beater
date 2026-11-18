@@ -1457,7 +1457,7 @@ public static class MidJoin
 		OpenPhoton(pub);
 		try
 		{
-			SteamManager.instance?.UnlockLobby(pub);
+			GameApiSafe.Invoke(GameApiSafe.Steam(), "UnlockLobby", pub);
 		}
 		catch
 		{
@@ -4051,7 +4051,7 @@ public static class MidJoin
 		}
 		try
 		{
-			SteamManager.instance?.LockLobby();
+			GameApiSafe.Invoke(GameApiSafe.Steam(), "LockLobby");
 		}
 		catch
 		{

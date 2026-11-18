@@ -1007,3 +1007,6 @@ pack.replaced_fmt=Re-placed {0} items that left the zone
 pack.no_items=No items to pack
 pack.no_extraction=No open extraction point found
 pack.guest_hint=Guest: packing moves items via ownership transfer; the host may need to be away from the platform
+
+# Compatibility warning
+compat.mismatch_fmt=Game version differs from the build baseline ({0}) - some features may be degraded. Check Feature health (Config tab).

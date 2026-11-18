@@ -144,7 +144,7 @@ public class PhotonRoomFinder : MonoBehaviourPunCallbacks
 		}
 		try
 		{
-			SteamManager.instance?.SendSteamAuthTicket();
+			GameApiSafe.Invoke(GameApiSafe.Steam(), "SendSteamAuthTicket");
 			PhotonNetwork.Disconnect();
 		}
 		catch (System.Exception ex)

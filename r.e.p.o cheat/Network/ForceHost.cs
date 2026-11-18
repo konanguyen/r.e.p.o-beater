@@ -782,7 +782,7 @@ public class ForceHost : MonoBehaviourPunCallbacks
 
 		// Step 2: 夺权成功后再加载场景
 		PhotonNetwork.CurrentRoom.IsOpen = false;
-		SteamManager.instance.LockLobby();
+		GameApiSafe.Invoke(GameApiSafe.Steam(), "LockLobby");
 		DataDirector.instance.RunsPlayedAdd();
 		pview.RPC("UpdateLevelRPC", (RpcTarget)0, new object[3] { levelName, 0, false });
 		RunManager.instance.ChangeLevel(true, false, (RunManager.ChangeLevelType)1);
