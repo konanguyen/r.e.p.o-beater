@@ -22,7 +22,7 @@ tab.teleport=Teleport
 tab.menu=Menu
 
 # Menu title
-menu.title=REPO BEATER 2.0
+menu.title=REPO BEATER
 menu.qq_group=QQ Group 865048905
 
 # Navigation shell

@@ -37,8 +37,12 @@
 
   <!-- ResolveReferences runs ResolveAssemblyReferences as a dependency. Building
        before the outer target is too late on a clean CI worker, because the
-       HintPath is probed inside that dependency. -->
+       HintPath is probed inside that dependency. Restore must run first or a
+       clean machine fails with NETSDK1004 (missing project.assets.json). -->
   <Target Name="BuildBundledDependencies" BeforeTargets="ResolveAssemblyReferences">
+    <MSBuild Projects="..\external\SharpMonoInjector\src\SharpMonoInjector\SharpMonoInjector.csproj"
+             Targets="Restore"
+             Properties="Configuration=$(Configuration)" />
     <MSBuild Projects="..\external\SharpMonoInjector\src\SharpMonoInjector\SharpMonoInjector.csproj"
              Targets="Build"
              Properties="Configuration=$(Configuration);OutputPath=bin\$(Configuration)\" />

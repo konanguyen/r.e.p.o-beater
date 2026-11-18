@@ -1,5 +1,8 @@
 name: Build and Release
 
+# Runs on every pushed v* tag. The tag MUST match ForkInfo.Version and
+# AssemblyVersion in the code, otherwise the job fails before building.
+
 on:
   push:
     tags:
@@ -21,7 +24,47 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: |
+            11.0.x
+            10.0.x
+
+      - name: Verify tag matches code version
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          if (-not $tag.StartsWith('v')) {
+            Write-Host "::error::Tag '$tag' must start with 'v' (e.g. v2.6.0)."
+            exit 1
+          }
+          $expected = $tag.Substring(1)
+
+          $forkInfoPath = 'r.e.p.o cheat/Core/ForkInfo.cs'
+          $match = [regex]::Match((Get-Content $forkInfoPath -Raw), 'Version\s*=\s*"([^"]+)"')
+          if (-not $match.Success) {
+            Write-Host "::error::Could not find ForkInfo.Version in $forkInfoPath"
+            exit 1
+          }
+          $codeVersion = $match.Groups[1].Value
+
+          $asmMatch = [regex]::Match((Get-Content 'r.e.p.o cheat/Properties/AssemblyInfo.cs' -Raw), 'AssemblyVersion\("(\d+)\.(\d+)\.(\d+)')
+          if (-not $asmMatch.Success) {
+            Write-Host "::error::Could not find AssemblyVersion in Properties/AssemblyInfo.cs"
+            exit 1
+          }
+          $asmVersion = "{0}.{1}.{2}" -f $asmMatch.Groups[1].Value, $asmMatch.Groups[2].Value, $asmMatch.Groups[3].Value
+
+          Write-Host "Tag:          $tag"
+          Write-Host "ForkInfo:     $codeVersion"
+          Write-Host "AssemblyInfo: $asmVersion"
+
+          if ($codeVersion -ne $expected) {
+            Write-Host "::error::Tag $tag does not match ForkInfo.Version '$codeVersion'. Update 'r.e.p.o cheat/Core/ForkInfo.cs' or fix the tag."
+            exit 1
+          }
+          if ($asmVersion -ne $expected) {
+            Write-Host "::error::Tag $tag does not match AssemblyVersion '$asmVersion'. Update Properties/AssemblyInfo.cs or fix the tag."
+            exit 1
+          }
 
       - name: Restore projects
         shell: pwsh
@@ -42,28 +85,55 @@ jobs:
           $releaseDirectory = Join-Path $env:GITHUB_WORKSPACE "release-artifacts"
           New-Item -ItemType Directory -Force -Path $releaseDirectory | Out-Null
           dotnet publish "RepoInjector/RepoInjector.csproj" -c Release --no-restore --nologo -o $releaseDirectory
-          $launcher = Join-Path $releaseDirectory "DarkMenu.Injector.exe"
+          $launcher = Join-Path $releaseDirectory "REPOBeater.Injector.exe"
           if (-not (Test-Path -LiteralPath $launcher)) {
             throw "Expected release launcher was not produced: $launcher"
           }
+          # Sanity check: the embedded payload must be the current Beater build
+          $bytes = [System.IO.File]::ReadAllBytes($launcher)
+          $text = [System.Text.Encoding]::ASCII.GetString($bytes)
+          if (-not $text.Contains('r.e.p.o_cheat.i18n.vi.txt')) {
+            throw "Embedded payload looks stale - Vietnamese i18n resource not found inside the exe."
+          }
+          Write-Host "Payload embedding OK. Exe size: $([math]::Round($bytes.Length / 1MB, 1)) MB"
           $hash = (Get-FileHash -LiteralPath $launcher -Algorithm SHA256).Hash.ToLowerInvariant()
-          "$hash  DarkMenu.Injector.exe" | Set-Content -LiteralPath "$launcher.sha256" -NoNewline
+          "$hash  REPOBeater.Injector.exe" | Set-Content -LiteralPath "$launcher.sha256" -NoNewline
+
+      - name: Package standalone payload DLL
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME.Substring(1)
+          $payload = 'r.e.p.o cheat/bin/Release/r.e.p.o cheat.dll'
+          if (-not (Test-Path -LiteralPath $payload)) {
+            throw "Payload DLL not found: $payload"
+          }
+          $target = Join-Path (Join-Path $env:GITHUB_WORKSPACE "release-artifacts") "REPOBeater-v$version.dll"
+          Copy-Item -LiteralPath $payload -Destination $target -Force
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}
+          name: REPO Beater ${{ github.ref_name }}
           body: |
-            ### Windows launcher
+            ### REPO Beater ${{ github.ref_name }}
 
-            1. Start R.E.P.O. normally.
-            2. Run `DarkMenu.Injector.exe`.
-            3. Approve the Windows UAC prompt.
+            Adapted for R.E.P.O. **v0.4.4.3**. Menu languages: Tiếng Việt / English / 简体中文 (Menu → Language).
 
-            The launcher targets only `repo.exe`, contains the payload DLL internally, and writes diagnostics to `%LOCALAPPDATA%\DarkMenu\injector.log`.
+            ### Downloads
+            - `REPOBeater.Injector.exe` — auto-finds `repo.exe` and injects the embedded payload (no extra DLL needed)
+            - `REPOBeater.Injector.exe.sha256` — checksum
+            - `REPOBeater-v2.6.0.dll` — standalone payload for SharpMonoInjector (`-n r.e.p.o_cheat -c Loader -m Init`)
+
+            ### Usage
+            1. Start R.E.P.O. (solo / private lobby only).
+            2. Run `REPOBeater.Injector.exe`, approve the UAC prompt.
+            3. Press **Delete** to toggle the menu, **F10** to unload.
+
+            Intended for solo / private-friends sessions — please respect other players.
           files: |
-            release-artifacts/DarkMenu.Injector.exe
-            release-artifacts/DarkMenu.Injector.exe.sha256
+            release-artifacts/REPOBeater.Injector.exe
+            release-artifacts/REPOBeater.Injector.exe.sha256
+            release-artifacts/REPOBeater-v*.dll
           draft: false
           prerelease: false

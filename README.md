@@ -110,6 +110,13 @@ Contributions are welcome. Please keep the compatibility layer up to date when a
 
 ## Changelog
 
+### v2.6.0 (2026-11-19)
+
+- CI: GitHub Actions builds on every pushed `v*` tag and publishes a release with `REPOBeater.Injector.exe` (+SHA256) and the standalone payload DLL.
+- Tag discipline: the tag must match `ForkInfo.Version` (`Core/ForkInfo.cs`) **and** `AssemblyVersion` (`Properties/AssemblyInfo.cs`), otherwise the build fails before packaging.
+- Menu title now displays the running version (`REPO BEATER v2.6.0`) read from `ForkInfo`.
+- Injector: submodule restore fix for clean machines (NETSDK1004).
+
 ### REPO Beater fork (2026-11-19)
 
 - Based on Mai-xiyu/r.e.p.o-cheat v2.5.1 (game v0.4.4.3 baseline unchanged).

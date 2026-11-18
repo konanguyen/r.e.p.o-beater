@@ -111,6 +111,13 @@ powershell -ExecutionPolicy Bypass -File run-tests.ps1
 
 ## 更新日志
 
+### v2.6.0（2026-11-19）
+
+- CI：推送 `v*` 标签时 GitHub Actions 自动构建并发布 Release，附带 `REPOBeater.Injector.exe`（+SHA256）与独立 payload DLL。
+- 标签纪律：tag 必须与 `ForkInfo.Version`（`Core/ForkInfo.cs`）**以及** `AssemblyVersion` 一致，否则构建直接失败。
+- 菜单标题显示运行版本（`REPO BEATER v2.6.0`），读取自 `ForkInfo`。
+- 注入器：修复干净机器上的 submodule restore（NETSDK1004）。
+
 ### REPO Beater 分支（2026-11-19）
 
 - 基于 Mai-xiyu/r.e.p.o-cheat v2.5.1（游戏基线 v0.4.4.3 不变）。

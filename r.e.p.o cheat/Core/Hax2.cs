@@ -1830,8 +1830,8 @@ public partial class Hax2 : MonoBehaviour
 		GUILayout.BeginVertical(Array.Empty<GUILayoutOption>());
 		GUILayout.Space(8f);
 
-		// Title bar - centered, clean
-		GUILayout.Label(L.T("menu.title"), titleStyle, Array.Empty<GUILayoutOption>());
+		// Title bar - centered, clean (fork version đọc từ ForkInfo, phải khớp release tag)
+		GUILayout.Label(L.T("menu.title") + " v" + ForkInfo.Version, titleStyle, Array.Empty<GUILayoutOption>());
 		// QQ 群信息
 		if (subtitleStyle == null)
 		{

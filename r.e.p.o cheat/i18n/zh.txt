@@ -22,7 +22,7 @@ tab.teleport=传送
 tab.menu=菜单
 
 # 菜单标题
-menu.title=REPO BEATER 2.0
+menu.title=REPO BEATER
 menu.qq_group=QQ 群 865048905
 
 # 导航壳层
