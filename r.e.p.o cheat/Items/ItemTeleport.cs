@@ -234,6 +234,17 @@ public static class ItemTeleport
 		{
 			return false;
 		}
+		// v0.5.2 đồng bộ vị trí đồ theo owner-authoritative: khách teleport không xin
+		// ownership thì đồ bị owner kéo về chỗ cũ ngay lập tức. Xin ownership trước
+		// (giống hệt cơ chế game dùng khi khách cầm đồ), rồi mới Teleport.
+		if (PhotonNetwork.IsConnected)
+		{
+			PhotonView view = source.GetComponentInParent<PhotonView>();
+			if ((Object)(object)view != (Object)null && !view.IsMine)
+			{
+				view.RequestOwnership();
+			}
+		}
 		PhysGrabObject body = ResolvePhysGrabObject(source);
 		if ((Object)(object)body != (Object)null)
 		{
